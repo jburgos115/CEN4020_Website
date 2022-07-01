@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.Author
 {
-    public class IndexModel : PageModel
+    public class UserViewModel : PageModel
     {
         public void OnGet()
         {
