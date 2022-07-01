@@ -1,0 +1,94 @@
+﻿@page
+@model CEN4020_Website.Pages.AuthorModel
+@{
+    ViewData["Title"] = "Submission";
+}
+
+<br>
+<h2>Paper Submission</h2>
+<a class="btn btn-primary btn-sm">Choose file</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>AnalysisOfAlgorithms</th>
+            <th>Applications</th>
+            <th>ArtificialIntelligence</th>
+            <th>ComputerEngineering</th>
+            <th>Curriculum</th>
+            <th>DataStructures</th>
+            <th>Databases</th>
+            <th>DistanceLearning</th>
+            <th>DistributedSystems</th>
+            <th>EthicalSocietalIssues</th>
+            <th>FirstYearComputing</th>
+            <th>GenderIssues</th>
+            <th>GrantWriting</th>
+            <th>GraphicsImageProcessing</th>
+            <th>HumanComputerInteraction</th>
+            <th>LabratoryEnvironments</th>
+            <th>Literacy</th>
+            <th>MathematicsInComputing</th>
+            <th>Multimedia</th>
+            <th>NetworkingDataCommunications</th>
+            <th>NonMajorCourses</th>
+            <th>ObjectOrientedIssues</th>
+            <th>OperatingSystems</th>
+            <th>ParallelProcessing</th>
+            <th>Pedagogy</th>
+            <th>ProgrammingLanguages</th>
+            <th>Research</th>
+            <th>Security</th>
+            <th>SoftwareEngineering</th>
+            <th>SystemsAnalysisAndDesign</th>
+            <th>UsingTechnologyInTheClassroom</th>
+            <th>WebAndInternetProgramming</th>
+            <th>Other</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listPaperSubmissions)
+        {
+            <tr>
+                <td>@item.title</td>
+                <td>@item.AnalysisOfAlgorithms</td>
+                <td>@item.Applications</td>
+                <td>@item.ArtificialIntelligence</td>
+                <td>@item.ComputerEngineering</td>
+                <td>@item.Curriculum</td>
+                <td>@item.DataStructures</td>
+                <td>@item.Databases</td>
+                <td>@item.DistanceLearning</td>
+                <td>@item.DistributedSystems</td>
+                <td>@item.EthicalSocietalIssues</td>
+                <td>@item.FirstYearComputing</td>
+                <td>@item.GenderIssues</td>
+                <td>@item.GrantWriting</td>
+                <td>@item.GraphicsImageProcessing</td>
+                <td>@item.HumanComputerInteraction</td>
+                <td>@item.LabratoryEnvironments</td>
+                <td>@item.Literacy</td>
+                <td>@item.MathematicsInComputing</td>
+                <td>@item.Multimedia</td>
+                <td>@item.NetworkingDataCommunications</td>
+                <td>@item.NonMajorCourses</td>
+                <td>@item.ObjectOrientedIssues</td>
+                <td>@item.OperatingSystems</td>
+                <td>@item.ParallelProcessing</td>
+                <td>@item.Pedagogy</td>
+                <td>@item.ProgrammingLanguages</td>
+                <td>@item.Research</td>
+                <td>@item.Security</td>
+                <td>@item.SoftwareEngineering</td>
+                <td>@item.SystemsAnalysisAndDesign</td>
+                <td>@item.UsingTechnologyInTheClassroom</td>
+                <td>@item.WebAndInternetProgramming</td>
+                <td>@item.Other</td>
+                <td>
+                    <a class="btn btn-primary btn-sm">Edit</a>
+                    <a class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
