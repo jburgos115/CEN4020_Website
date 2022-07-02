@@ -1,0 +1,73 @@
+﻿@page
+@model CEN4020_Website.Pages.Reviews.ReviewModel
+@{
+     ViewData["Title"] = "Review";
+}
+
+<br>
+<h2>Paper Review</h2>
+<a class="btn btn-primary btn-sm">Choose file</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>PaperID</th>
+            <th>AuthorID</th>
+            <th>ReviewerID</th>
+            <th>AppropriatenessOfTopic</th>
+            <th>TimelinessOfTopic</th>
+            <th>SupportiveEvidence</th>
+            <th>TechniccalQuality</th>
+            <th>ScopOfCoverage</th>
+            <th>CitationOfPreviousWork</th>
+            <th>Originality</th>
+            <th>ContentComments</th>
+            <th>OrganizationOfPaper</th>
+            <th>ClarityOfMessage</th>
+            <th>Mechanics</th>
+            <th>WrittenDocumentsComments</th>
+            <th>SuitabilityForPresentation</th>
+            <th>PotentialInterestInTopic</th>
+            <th>PotentialForOralPresentationComments</th>
+            <th>OverallRating</th>
+            <th>OverallRatingComments</th>
+            <th>ComfortLevelTopic</th>
+            <th>ComfortLevelAcceptability</th>
+            <th>Complete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listPaperReview)
+        {
+            <tr>
+                <td>@item.PaperID</td>
+                <td>@item.AuthorID</td>
+                <td>@item.ReviewerID</td>
+                <td>@item.AppropriatenessOfTopic</td>
+                <td>@item.TimelinessOfTopic</td>
+                <td>@item.SupportiveEvidence</td>
+                <td>@item.TechniccalQuality</td>
+                <td>@item.ScopOfCoverage</td>
+                <td>@item.CitationOfPreviousWork</td>
+                <td>@item.Originality</td>
+                <td>@item.ContentComments</td>
+                <td>@item.OrganizationOfPaper</td>
+                <td>@item.OrganizationOfPaper</td>
+                <td>@item.ClarityOfMessage</td>
+                <td>@item.Mechanics</td>
+                <td>@item.WrittenDocumentsComments</td>
+                <td>@item.SuitabilityForPresentation</td>
+                <td>@item.PotentialInterestInTopic</td>
+                <td>@item.PotentialForOralPresentationComments</td>
+                <td>@item.OverallRating</td>
+                <td>@item.OverallRatingComments</td>
+                <td>@item.ComfortLevelTopic</td>
+                <td>@item.Complete</td>
+               
+                <td>
+                    <a class="btn btn-primary btn-sm">Edit</a>
+                    <a class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
