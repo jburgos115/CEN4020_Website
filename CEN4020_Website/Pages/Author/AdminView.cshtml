@@ -10,9 +10,17 @@
 <table class="table">
     <thead>
         <tr>
+            <th>PaperID</th>
+            <th>AuthorID</th>
+            <th>Active</th>
+            <th>OriginalFilename</th>
+            <th>Filename</th>
             <th>Title</th>
+            <th>Certification</th>
+            <th>NotesToReviewer</th>
             <th>AnalysisOfAlgorithms</th>
             <th>Applications</th>
+            <th>Architecture</th>
             <th>ArtificialIntelligence</th>
             <th>ComputerEngineering</th>
             <th>Curriculum</th>
@@ -50,9 +58,17 @@
         @foreach(var item in Model.listPaperSubmissions)
         {
             <tr>
+                <td>@item.PaperID</td>
+                <td>@item.AuthorID</td>
+                <td>@item.Active</td>
+                <td>@item.FilenameOriginal</td>
+                <td>@item.Filename</td>
                 <td>@item.title</td>
+                <td>@item.Certification</td>
+                <td>@item.NotesToReviewer</td>
                 <td>@item.AnalysisOfAlgorithms</td>
                 <td>@item.Applications</td>
+                <td>@item.Architecture</td>
                 <td>@item.ArtificialIntelligence</td>
                 <td>@item.ComputerEngineering</td>
                 <td>@item.Curriculum</td>

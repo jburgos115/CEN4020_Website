@@ -12,10 +12,10 @@ namespace CEN4020_Website.Pages
             try
             {
                 String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=CPMS;Integrated Security=True";
-                using (SqlConnection connection = new SqlConnection(/*connectionString*/))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "SELECT * FROM Author";
+                    String sql = "SELECT * FROM Paper";
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -23,41 +23,48 @@ namespace CEN4020_Website.Pages
                             while (reader.Read())
                             {
                                 PaperSubmission paperSubmission               = new PaperSubmission();
-                                paperSubmission.title                         = reader.GetString(0);
-                                paperSubmission.AnalysisOfAlgorithms          = (bool)reader["AnalysisOfAlgorithms"];
-                                paperSubmission.Applications                  = (bool)reader["Applications"];
-                                paperSubmission.Architecture                  = (bool)reader["Architecture"];
-                                paperSubmission.ArtificialIntelligence        = (bool)reader["ArtificialIntelligence"];
-                                paperSubmission.ComputerEngineering           = (bool)reader["ComputerEngineering"];
-                                paperSubmission.Curriculum                    = (bool)reader["Curriculum"];
-                                paperSubmission.DataStructures                = (bool)reader["DataStructures"];
-                                paperSubmission.Databases                     = (bool)reader["Databases"];
-                                paperSubmission.DistanceLearning              = (bool)reader["DistanceLearning"];
-                                paperSubmission.DistributedSystems            = (bool)reader["DistributedSystems"];
-                                paperSubmission.EthicalSocietalIssues         = (bool)reader["EthicalSocietalIssues"];
-                                paperSubmission.FirstYearComputing            = (bool)reader["FirstYearComputing"];
-                                paperSubmission.GenderIssues                  = (bool)reader["GenderIssues"];
-                                paperSubmission.GrantWriting                  = (bool)reader["GrantWriting"];
-                                paperSubmission.GraphicsImageProcessing       = (bool)reader["GraphicsImageProcessing"];
-                                paperSubmission.HumanComputerInteraction      = (bool)reader["HumanComputerInteraction"];
-                                paperSubmission.LabratoryEnvironments         = (bool)reader["LabratoryEnvironments"];
-                                paperSubmission.Literacy                      = (bool)reader["Literacy"];
-                                paperSubmission.MathematicsInComputing        = (bool)reader["MathematicsInComputing"];
-                                paperSubmission.Multimedia                    = (bool)reader["Multimedia"];
-                                paperSubmission.NetworkingDataCommunications  = (bool)reader["NetworkingDataCommunications"];
-                                paperSubmission.NonMajorCourses               = (bool)reader["NonMajorCourses"];
-                                paperSubmission.ObjectOrientedIssues          = (bool)reader["ObjectOrientedIssues"];
-                                paperSubmission.OperatingSystems              = (bool)reader["OperatingSystems"];
-                                paperSubmission.ParallelProcessing            = (bool)reader["ParallelProcessing"];
-                                paperSubmission.Pedagogy                      = (bool)reader["Pedagogy"];
-                                paperSubmission.ProgrammingLanguages          = (bool)reader["ProgrammingLanguages"];
-                                paperSubmission.Research                      = (bool)reader["Research"];
-                                paperSubmission.Security                      = (bool)reader["Security"];
-                                paperSubmission.SoftwareEngineering           = (bool)reader["SoftwareEngineering"];
-                                paperSubmission.SystemsAnalysisAndDesign      = (bool)reader["SystemsAnalysisAndDesign"];
-                                paperSubmission.UsingTechnologyInTheClassroom = (bool)reader["UsingTechnologyInTheClassroom"];
-                                paperSubmission.WebAndInternetProgramming     = (bool)reader["WebAndInternetProgramming"];
-                                paperSubmission.Other                         = (bool)reader["Other"];
+                                paperSubmission.PaperID                       = reader.GetInt32(0);
+                                paperSubmission.AuthorID                      = reader.GetInt32(1);
+                                paperSubmission.Active                        = (bool)reader.GetSqlBoolean(2);
+                                paperSubmission.FilenameOriginal              = reader.GetString(3);
+                                paperSubmission.Filename                      = reader.GetString(4);
+                                paperSubmission.title                         = reader.GetString(5);
+                                paperSubmission.Certification                 = reader.GetString(6);
+                                paperSubmission.NotesToReviewer               = reader.GetString(7);
+                                paperSubmission.AnalysisOfAlgorithms          = (bool)reader.GetSqlBoolean(8);
+                                paperSubmission.Applications                  = (bool)reader.GetSqlBoolean(8);
+                                paperSubmission.Architecture                  = (bool)reader.GetSqlBoolean(9);
+                                paperSubmission.ArtificialIntelligence        = (bool)reader.GetSqlBoolean(10);
+                                paperSubmission.ComputerEngineering           = (bool)reader.GetSqlBoolean(11);
+                                paperSubmission.Curriculum                    = (bool)reader.GetSqlBoolean(12);
+                                paperSubmission.DataStructures                = (bool)reader.GetSqlBoolean(13);
+                                paperSubmission.Databases                     = (bool)reader.GetSqlBoolean(14);
+                                paperSubmission.DistanceLearning              = (bool)reader.GetSqlBoolean(15);
+                                paperSubmission.DistributedSystems            = (bool)reader.GetSqlBoolean(16);
+                                paperSubmission.EthicalSocietalIssues         = (bool)reader.GetSqlBoolean(17);
+                                paperSubmission.FirstYearComputing            = (bool)reader.GetSqlBoolean(18);
+                                paperSubmission.GenderIssues                  = (bool)reader.GetSqlBoolean(19);
+                                paperSubmission.GrantWriting                  = (bool)reader.GetSqlBoolean(20);
+                                paperSubmission.GraphicsImageProcessing       = (bool)reader.GetSqlBoolean(21);
+                                paperSubmission.HumanComputerInteraction      = (bool)reader.GetSqlBoolean(22);
+                                paperSubmission.LabratoryEnvironments         = (bool)reader.GetSqlBoolean(23);
+                                paperSubmission.Literacy                      = (bool)reader.GetSqlBoolean(24);
+                                paperSubmission.MathematicsInComputing        = (bool)reader.GetSqlBoolean(25);
+                                paperSubmission.Multimedia                    = (bool)reader.GetSqlBoolean(26);
+                                paperSubmission.NetworkingDataCommunications  = (bool)reader.GetSqlBoolean(27);
+                                paperSubmission.NonMajorCourses               = (bool)reader.GetSqlBoolean(28);
+                                paperSubmission.ObjectOrientedIssues          = (bool)reader.GetSqlBoolean(29);
+                                paperSubmission.OperatingSystems              = (bool)reader.GetSqlBoolean(30);
+                                paperSubmission.ParallelProcessing            = (bool)reader.GetSqlBoolean(31);
+                                paperSubmission.Pedagogy                      = (bool)reader.GetSqlBoolean(32);
+                                paperSubmission.ProgrammingLanguages          = (bool)reader.GetSqlBoolean(33);
+                                paperSubmission.Research                      = (bool)reader.GetSqlBoolean(34);
+                                paperSubmission.Security                      = (bool)reader.GetSqlBoolean(35);
+                                paperSubmission.SoftwareEngineering           = (bool)reader.GetSqlBoolean(36);
+                                paperSubmission.SystemsAnalysisAndDesign      = (bool)reader.GetSqlBoolean(37);
+                                paperSubmission.UsingTechnologyInTheClassroom = (bool)reader.GetSqlBoolean(38);
+                                paperSubmission.WebAndInternetProgramming     = (bool)reader.GetSqlBoolean(39);
+                                paperSubmission.Other                         = (bool)reader.GetSqlBoolean(40);
 
                                 listPaperSubmissions.Add(paperSubmission);
 
@@ -76,7 +83,14 @@ namespace CEN4020_Website.Pages
 
     public class PaperSubmission
     {
+        public int PaperID;
+        public int AuthorID;
+        public bool Active;
+        public string FilenameOriginal;
+        public string Filename;
         public string title;
+        public string Certification;
+        public string NotesToReviewer;
         public bool AnalysisOfAlgorithms;
         public bool Applications;
         public bool Architecture;
