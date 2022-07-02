@@ -40,105 +40,158 @@
 <br>
 <h2>Paper Submissions</h2>
 <br>
-<a class="btn btn-primary btn-sm">Add file</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th>PaperID</th>
-            <th>AuthorID</th>
-            <th>Active</th>
-            <th>OriginalFilename</th>
-            <th>Filename</th>
-            <th>Title</th>
-            <th>Certification</th>
-            <th>NotesToReviewer</th>
-            <th>AnalysisOfAlgorithms</th>
-            <th>Applications</th>
-            <th>Architecture</th>
-            <th>ArtificialIntelligence</th>
-            <th>ComputerEngineering</th>
-            <th>Curriculum</th>
-            <th>DataStructures</th>
-            <th>Databases</th>
-            <th>DistanceLearning</th>
-            <th>DistributedSystems</th>
-            <th>EthicalSocietalIssues</th>
-            <th>FirstYearComputing</th>
-            <th>GenderIssues</th>
-            <th>GrantWriting</th>
-            <th>GraphicsImageProcessing</th>
-            <th>HumanComputerInteraction</th>
-            <th>LabratoryEnvironments</th>
-            <th>Literacy</th>
-            <th>MathematicsInComputing</th>
-            <th>Multimedia</th>
-            <th>NetworkingDataCommunications</th>
-            <th>NonMajorCourses</th>
-            <th>ObjectOrientedIssues</th>
-            <th>OperatingSystems</th>
-            <th>ParallelProcessing</th>
-            <th>Pedagogy</th>
-            <th>ProgrammingLanguages</th>
-            <th>Research</th>
-            <th>Security</th>
-            <th>SoftwareEngineering</th>
-            <th>SystemsAnalysisAndDesign</th>
-            <th>UsingTechnologyInTheClassroom</th>
-            <th>WebAndInternetProgramming</th>
-            <th>Other</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model.listPaperSubmissions)
-        {
+
+<form method="POST">
+    <div class="row mb-3 col-sm-6">
+        <input placeholder="Paper Title" type="text" class="form-control" name="name" value="">
+    </div>
+    <div class="row mb-3 col-sm-6">
+        <select name="topics">
+            <option value="">Select topics</option>
+            <option value="1">Analysis Of Algorithms</option>
+            <option value="2">Applications</option>
+            <option value="3">Architecture</option>
+            <option value="4">Artificial Intelligence</option>
+            <option value="5">Computer Engineering</option>
+            <option value="6">Curriculum</option>
+            <option value="7">Data Structures</option>
+            <option value="8">Databases</option>
+            <option value="9">Distance Learning</option>
+            <option value="10">Distributed Systems</option>
+            <option value="11">Ethical Societal Issues</option>
+            <option value="12">First Year Computing</option>
+            <option value="13">Gender Issues</option>
+            <option value="14">Grant Writing</option>
+            <option value="15">Graphics Image Processing</option>
+            <option value="16">Human Computer Interaction</option>
+            <option value="17">Labratory Environments</option>
+            <option value="18">Literacy</option>
+            <option value="19">Mathematics In Computing</option>
+            <option value="20">Multimedia</option>
+            <option value="21">Networking Data Communications</option>
+            <option value="22">NonMajor Courses</option>
+            <option value="23">Object Oriented Issues</option>
+            <option value="24">Operating Systems</option>
+            <option value="25">Parallel Processing</option>
+            <option value="26">Pedagogy</option>
+            <option value="27">Programming Languages</option>
+            <option value="28">Research</option>
+            <option value="29">Security</option>
+            <option value="30">Software Engineering</option>
+            <option value="31">Systems Analysis And Design</option>
+            <option value="32">Using Technology In The Classroom</option>
+            <option value="33">WebAnd Internet Programming</option>
+            <option value="34">Other</option>
+        </select>
+    </div>
+    <div class="row mb-3 col-sm-2">
+        <button type="button" class="btn-primary">Select file</button>
+    </div>
+    <div class="row mb-3 col-sm-2">
+            <button type="submit" class="btn-primary btn-primary">Add Paper</button>
+    </div>
+</form>
+
+<div>
+    <table class="table">
+        <thead>
             <tr>
-                <td>@item.PaperID</td>
-                <td>@item.AuthorID</td>
-                <td>@item.Active</td>
-                <td>@item.FilenameOriginal</td>
-                <td>@item.Filename</td>
-                <td>@item.title</td>
-                <td>@item.Certification</td>
-                <td>@item.NotesToReviewer</td>
-                <td>@item.AnalysisOfAlgorithms</td>
-                <td>@item.Applications</td>
-                <td>@item.Architecture</td>
-                <td>@item.ArtificialIntelligence</td>
-                <td>@item.ComputerEngineering</td>
-                <td>@item.Curriculum</td>
-                <td>@item.DataStructures</td>
-                <td>@item.Databases</td>
-                <td>@item.DistanceLearning</td>
-                <td>@item.DistributedSystems</td>
-                <td>@item.EthicalSocietalIssues</td>
-                <td>@item.FirstYearComputing</td>
-                <td>@item.GenderIssues</td>
-                <td>@item.GrantWriting</td>
-                <td>@item.GraphicsImageProcessing</td>
-                <td>@item.HumanComputerInteraction</td>
-                <td>@item.LabratoryEnvironments</td>
-                <td>@item.Literacy</td>
-                <td>@item.MathematicsInComputing</td>
-                <td>@item.Multimedia</td>
-                <td>@item.NetworkingDataCommunications</td>
-                <td>@item.NonMajorCourses</td>
-                <td>@item.ObjectOrientedIssues</td>
-                <td>@item.OperatingSystems</td>
-                <td>@item.ParallelProcessing</td>
-                <td>@item.Pedagogy</td>
-                <td>@item.ProgrammingLanguages</td>
-                <td>@item.Research</td>
-                <td>@item.Security</td>
-                <td>@item.SoftwareEngineering</td>
-                <td>@item.SystemsAnalysisAndDesign</td>
-                <td>@item.UsingTechnologyInTheClassroom</td>
-                <td>@item.WebAndInternetProgramming</td>
-                <td>@item.Other</td>
-                <td>
-                    <a class="btn btn-primary btn-sm">Edit</a>
-                    <a class="btn btn-danger btn-sm">Delete</a>
-                </td>
+                <th>PaperID</th>
+                <th>AuthorID</th>
+                <th>Active</th>
+                <th>OriginalFilename</th>
+                <th>Filename</th>
+                <th>Title</th>
+                <th>Certification</th>
+                <th>NotesToReviewer</th>
+                <th>AnalysisOfAlgorithms</th>
+                <th>Applications</th>
+                <th>Architecture</th>
+                <th>ArtificialIntelligence</th>
+                <th>ComputerEngineering</th>
+                <th>Curriculum</th>
+                <th>DataStructures</th>
+                <th>Databases</th>
+                <th>DistanceLearning</th>
+                <th>DistributedSystems</th>
+                <th>EthicalSocietalIssues</th>
+                <th>FirstYearComputing</th>
+                <th>GenderIssues</th>
+                <th>GrantWriting</th>
+                <th>GraphicsImageProcessing</th>
+                <th>HumanComputerInteraction</th>
+                <th>LabratoryEnvironments</th>
+                <th>Literacy</th>
+                <th>MathematicsInComputing</th>
+                <th>Multimedia</th>
+                <th>NetworkingDataCommunications</th>
+                <th>NonMajorCourses</th>
+                <th>ObjectOrientedIssues</th>
+                <th>OperatingSystems</th>
+                <th>ParallelProcessing</th>
+                <th>Pedagogy</th>
+                <th>ProgrammingLanguages</th>
+                <th>Research</th>
+                <th>Security</th>
+                <th>SoftwareEngineering</th>
+                <th>SystemsAnalysisAndDesign</th>
+                <th>UsingTechnologyInTheClassroom</th>
+                <th>WebAndInternetProgramming</th>
+                <th>Other</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.listPaperSubmissions)
+            {
+                <tr>
+                    <td>@item.PaperID</td>
+                    <td>@item.AuthorID</td>
+                    <td>@item.Active</td>
+                    <td>@item.FilenameOriginal</td>
+                    <td>@item.Filename</td>
+                    <td>@item.title</td>
+                    <td>@item.Certification</td>
+                    <td>@item.NotesToReviewer</td>
+                    <td>@item.AnalysisOfAlgorithms</td>
+                    <td>@item.Applications</td>
+                    <td>@item.Architecture</td>
+                    <td>@item.ArtificialIntelligence</td>
+                    <td>@item.ComputerEngineering</td>
+                    <td>@item.Curriculum</td>
+                    <td>@item.DataStructures</td>
+                    <td>@item.Databases</td>
+                    <td>@item.DistanceLearning</td>
+                    <td>@item.DistributedSystems</td>
+                    <td>@item.EthicalSocietalIssues</td>
+                    <td>@item.FirstYearComputing</td>
+                    <td>@item.GenderIssues</td>
+                    <td>@item.GrantWriting</td>
+                    <td>@item.GraphicsImageProcessing</td>
+                    <td>@item.HumanComputerInteraction</td>
+                    <td>@item.LabratoryEnvironments</td>
+                    <td>@item.Literacy</td>
+                    <td>@item.MathematicsInComputing</td>
+                    <td>@item.Multimedia</td>
+                    <td>@item.NetworkingDataCommunications</td>
+                    <td>@item.NonMajorCourses</td>
+                    <td>@item.ObjectOrientedIssues</td>
+                    <td>@item.OperatingSystems</td>
+                    <td>@item.ParallelProcessing</td>
+                    <td>@item.Pedagogy</td>
+                    <td>@item.ProgrammingLanguages</td>
+                    <td>@item.Research</td>
+                    <td>@item.Security</td>
+                    <td>@item.SoftwareEngineering</td>
+                    <td>@item.SystemsAnalysisAndDesign</td>
+                    <td>@item.UsingTechnologyInTheClassroom</td>
+                    <td>@item.WebAndInternetProgramming</td>
+                    <td>@item.Other</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm">Edit</a>
+                        <a class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
