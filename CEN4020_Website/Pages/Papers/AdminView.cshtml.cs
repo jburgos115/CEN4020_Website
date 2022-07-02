@@ -6,6 +6,8 @@ namespace CEN4020_Website.Pages
 {
     public class AuthorModel : PageModel
     {
+        public PaperSubmission paperSubmission = new PaperSubmission();
+        public String errorMessage = "";
         public List<PaperSubmission> listPaperSubmissions = new List<PaperSubmission>();
         public void OnGet()
         {
@@ -78,8 +80,20 @@ namespace CEN4020_Website.Pages
                 Console.WriteLine("Exception: " + ex.ToString());
             }
         }
+
+        public void OnPost()
+        {
+            paperSubmission.title = Request.Form["Title"];
+
+            if (paperSubmission.title.Length == 0)
+            {
+                errorMessage = "Paper Title required";
+                return;
+            }
+        }
     }
 
+    
 
     public class PaperSubmission
     {

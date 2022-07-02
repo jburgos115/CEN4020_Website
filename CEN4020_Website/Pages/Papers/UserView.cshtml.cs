@@ -8,5 +8,10 @@ namespace CEN4020_Website.Pages.Author
         public void OnGet()
         {
         }
+
+        public void OnPost()
+        {
+
+        }
     }
 }
