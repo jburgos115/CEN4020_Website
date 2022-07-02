@@ -25,12 +25,57 @@
 <br>
 <h2>Paper Submission</h2>
 <br>
-<a class="btn btn-primary btn-sm">Choose file</a>
+
 <form method="POST">
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Title</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="title" value="">
-        </div>
+    <div class="row mb-3 col-sm-6">
+        <input placeholder="Paper Title" type="text" class="form-control" name="name" value="">
+    </div>
+    <div class="row mb-3 col-sm-6">
+        <select name="topics">
+            <option value="">Select topics</option>
+            <option value="1">Analysis Of Algorithms</option>
+            <option value="2">Applications</option>
+            <option value="3">Architecture</option>
+            <option value="4">Artificial Intelligence</option>
+            <option value="5">Computer Engineering</option>
+            <option value="6">Curriculum</option>
+            <option value="7">Data Structures</option>
+            <option value="8">Databases</option>
+            <option value="9">Distance Learning</option>
+            <option value="10">Distributed Systems</option>
+            <option value="11">Ethical Societal Issues</option>
+            <option value="12">First Year Computing</option>
+            <option value="13">Gender Issues</option>
+            <option value="14">Grant Writing</option>
+            <option value="15">Graphics Image Processing</option>
+            <option value="16">Human Computer Interaction</option>
+            <option value="17">Labratory Environments</option>
+            <option value="18">Literacy</option>
+            <option value="19">Mathematics In Computing</option>
+            <option value="20">Multimedia</option>
+            <option value="21">Networking Data Communications</option>
+            <option value="22">NonMajor Courses</option>
+            <option value="23">Object Oriented Issues</option>
+            <option value="24">Operating Systems</option>
+            <option value="25">Parallel Processing</option>
+            <option value="26">Pedagogy</option>
+            <option value="27">Programming Languages</option>
+            <option value="28">Research</option>
+            <option value="29">Security</option>
+            <option value="30">Software Engineering</option>
+            <option value="31">Systems Analysis And Design</option>
+            <option value="32">Using Technology In The Classroom</option>
+            <option value="33">WebAnd Internet Programming</option>
+            <option value="34">Other</option>
+        </select>
+    </div>
+    <div class="row mb-3 col-sm-2">
+        <button type="button" class="btn-primary">Select file</button>
+    </div>
+    <div class="row mb-3 col-sm-2">
+            <button type="submit" class="btn-primary btn-primary">Submit Paper</button>
     </div>
 </form>
+
+
+
