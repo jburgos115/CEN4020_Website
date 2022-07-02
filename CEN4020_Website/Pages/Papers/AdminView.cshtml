@@ -96,6 +96,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th></th>
                 <th>PaperID</th>
                 <th>AuthorID</th>
                 <th>Active</th>
@@ -144,6 +145,10 @@
             @foreach(var item in Model.listPaperSubmissions)
             {
                 <tr>
+                    <td>
+                        <a class="btn btn-primary btn-sm">Edit</a>
+                        <a class="btn btn-danger btn-sm">Delete</a>
+                    </td>
                     <td>@item.PaperID</td>
                     <td>@item.AuthorID</td>
                     <td>@item.Active</td>
@@ -186,10 +191,7 @@
                     <td>@item.UsingTechnologyInTheClassroom</td>
                     <td>@item.WebAndInternetProgramming</td>
                     <td>@item.Other</td>
-                    <td>
-                        <a class="btn btn-primary btn-sm">Edit</a>
-                        <a class="btn btn-danger btn-sm">Delete</a>
-                    </td>
+                    
                 </tr>
             }
         </tbody>
