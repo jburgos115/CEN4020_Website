@@ -1,0 +1,82 @@
+﻿@page
+@model CEN4020_Website.Pages.Authors.IndexModel
+@{
+}
+
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary"> Author List</h2>
+		</div>
+		<div class="col-6">
+			<a asp-page="create" class="btn btn-primary">
+				Create New Author
+			</a>
+		</div>
+	</div>
+
+	<br /><br />
+
+	<table class="table table-bordered table-striped" style="width:100%">
+		<thead>
+			<tr>
+				<th>
+					First Name
+				</th>
+				<th>
+					Middle Initial
+				</th>
+				<th>
+					Last Name
+				</th>
+				<th>
+					Affiliation
+				</th>
+				<th>
+					Department
+				</th>
+				<th>
+					Address
+				</th>
+				<th>
+					City
+				</th>
+				<th>
+					State
+				</th>
+				<th>
+					Zip Code
+				</th>
+				<th>
+					Phone Number
+				</th>
+				<th>
+					Email Address
+				</th>
+				<th>
+					Password
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var obj in Model.Authors)
+			{
+				<tr>
+					<td width="10%">@obj.firstName</td>
+					<td width="2">@obj.middleInitial</td>
+					<td width="20">@obj.lastName</td>
+					<td width="20">@obj.affiliation</td>
+					<td width="5">@obj.department</td>
+					<td width="5">@obj.address</td>
+					<td width="5">@obj.city</td>
+					<td width="5">@obj.state</td>
+					<td width="5">@obj.zipCode</td>
+					<td width="5">@obj.phoneNumber</td>
+					<td width="5">@obj.emailAddress</td>
+					<td width="5">@obj.password</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>
