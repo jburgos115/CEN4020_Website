@@ -13,7 +13,7 @@ namespace CEN4020_Website.Pages
         {
             try
             {
-                String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=CPMS;Integrated Security=True";
+                String connectionString = "Data Source=.;Initial Catalog=CPMS;Integrated Security=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
