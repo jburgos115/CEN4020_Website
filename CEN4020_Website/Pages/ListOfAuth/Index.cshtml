@@ -1,5 +1,5 @@
 ﻿@page
-@model CEN4020_Website.Pages.Authors.IndexModel
+@model CEN4020_Website.Pages.ListOfAuth.IndexModel
 @{
 }
 
@@ -59,21 +59,21 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach(var obj in Model.Authors)
+			@foreach(var obj in Model.ListOfAuth)
 			{
 				<tr>
-					<td width="10%">@obj.firstName</td>
-					<td width="2">@obj.middleInitial</td>
-					<td width="20">@obj.lastName</td>
-					<td width="20">@obj.affiliation</td>
-					<td width="5">@obj.department</td>
-					<td width="5">@obj.address</td>
-					<td width="5">@obj.city</td>
-					<td width="5">@obj.state</td>
-					<td width="5">@obj.zipCode</td>
-					<td width="5">@obj.phoneNumber</td>
-					<td width="5">@obj.emailAddress</td>
-					<td width="5">@obj.password</td>
+					<td width="50%">@obj.FirstName</td>
+					<td width="5%">@obj.MiddleInitial</td>
+					<td width="50%">@obj.LastName</td>
+					<td width="50%">@obj.Affiliation</td>
+					<td width="50%">@obj.Department</td>
+					<td width="50%">@obj.Address</td>
+					<td width="50%">@obj.City</td>
+					<td width="50%">@obj.State</td>
+					<td width="50%">@obj.ZipCode</td>
+					<td width="50%">@obj.PhoneNumber</td>
+					<td width="50%">@obj.EmailAddress</td>
+					<td width="50%">@obj.Password</td>
 				</tr>
 			}
 		</tbody>

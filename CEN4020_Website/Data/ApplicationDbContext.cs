@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CEN4020_Website.Model;
+﻿using CEN4020_Website.Model;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CEN4020_Website.Data
 {

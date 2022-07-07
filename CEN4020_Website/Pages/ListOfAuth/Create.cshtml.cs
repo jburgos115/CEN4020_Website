@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CEN4020_Website.Data;
-using CEN4020_Website.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CEN4020_Website.Pages.Authors
+namespace CEN4020_Website.Pages.ListOfAuth
 {
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        [BindProperty]
+
         public Model.Author Author { get; set; }
 
         public CreateModel(ApplicationDbContext db)
@@ -23,11 +18,12 @@ namespace CEN4020_Website.Pages.Authors
         {
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(Model.Author author)
         {
-            await _db.Author.AddAsync(Author);
+            await _db.Author.AddAsync(author);
             await _db.SaveChangesAsync();
             return RedirectToPage("Index");
+
         }
     }
 }

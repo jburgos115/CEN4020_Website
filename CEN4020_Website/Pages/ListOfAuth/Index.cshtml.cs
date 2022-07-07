@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CEN4020_Website.Data;
-using CEN4020_Website.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CEN4020_Website.Pages.Authors
+namespace CEN4020_Website.Pages.ListOfAuth
 {
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        public IEnumerable<Model.Author> Authors { get; set; }
+        public IEnumerable<Model.Author> ListOfAuth { get; set; }
         public IndexModel(ApplicationDbContext db)
         {
             _db = db;
@@ -20,7 +15,7 @@ namespace CEN4020_Website.Pages.Authors
 
         public void OnGet()
         {
-            Authors = _db.Author;
+            ListOfAuth = _db.Author;
         }
     }
 }
