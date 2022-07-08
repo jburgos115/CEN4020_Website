@@ -2,14 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 
 
-namespace CEN4020_Website.Data
+namespace CEN4020_Website.Data;
+public class ApplicationDbContext : DbContext
 {
-	public class ApplicationDbContext : DbContext
+	public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
 	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-		{
 
-		}
-		public DbSet<Author> Author { get; set; }
 	}
+	public DbSet<Author> Author { get; set; }
 }

@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace CEN4020_Website.Pages.ListOfAuth
 {
     [BindProperties]
-    public class EditModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
         public Model.Author Author { get; set; }
 
-        public EditModel(ApplicationDbContext db)
+        public DeleteModel(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -22,12 +22,14 @@ namespace CEN4020_Website.Pages.ListOfAuth
 
         public async Task<IActionResult> OnPost(Model.Author author)
         {
-            if (ModelState.IsValid)
+            var authorFromDb = _db.Author.Find(author.AuthorID);
+            if(authorFromDb != null)
             {
-                _db.Author.Update(author);
+                _db.Author.Remove(authorFromDb);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("Index");
             }
+            
             return Page();
 
         }
