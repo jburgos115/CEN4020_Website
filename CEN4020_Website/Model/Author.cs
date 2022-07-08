@@ -41,7 +41,7 @@ namespace CEN4020_Website.Model
         public string EmailAddress { get; set; }
 
         [Required(ErrorMessage = "Please provide Password", AllowEmptyStrings = false)]
-        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
+        //[DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         [StringLength(5, MinimumLength = 5, ErrorMessage = "Password must be 5 char long.")]
         public string Password { get; set; }
 
