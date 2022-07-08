@@ -27,6 +27,7 @@ namespace CEN4020_Website.Pages.ListOfAuth
             {
                 _db.Author.Remove(authorFromDb);
                 await _db.SaveChangesAsync();
+                TempData["success"] = "Author Deleted Successfully";
                 return RedirectToPage("Index");
             }
             
