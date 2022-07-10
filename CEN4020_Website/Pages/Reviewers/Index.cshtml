@@ -1,5 +1,5 @@
 ﻿@page
-@model CEN4020_Website.Pages.ListOfAuth.IndexModel
+@model CEN4020_Website.Pages.Reviewers.IndexModel
 @{
 }
 
@@ -11,11 +11,11 @@
 <div class="container p-3">
 	<div class="row pt-4">
 		<div class="col-6">
-			<h2 class="text-primary"> Author List</h2>
+			<h2 class="text-primary"> Reviewer List</h2>
 		</div>
 		<div class="col-6 text-end">
 			<a asp-page="create" class="btn btn-primary">
-				<i class="bi bi-pencil-square"></i> &nbsp;Create New Author
+				<i class="bi bi-pencil-square"></i> &nbsp;Create New Reviewer
 			</a>
 		</div>
 	</div>
@@ -71,7 +71,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach(var obj in Model.ListOfAuth)
+			@foreach(var obj in Model.Reviewer)
 			{
 				<tr>
 					<td width="50%">@obj.FirstName</td>
@@ -88,10 +88,10 @@
 					<td width="50%">@obj.Password</td>
 					<td>
 						<div class="w-75 btn-group" role="group">
-							<a asp-page="Edit" asp-route-id="@obj.AuthorID" class="btn btn-primary mx-2">
+							<a asp-page="Edit" asp-route-id="@obj.ReviewerID" class="btn btn-primary mx-2">
 								<i class="bi bi-pencil-square"></i>
 							</a>
-							<a asp-page="Delete" asp-route-id="@obj.AuthorID" class="btn btn-danger mx-2">
+							<a asp-page="Delete" asp-route-id="@obj.ReviewerID" class="btn btn-danger mx-2">
 								<i class="bi bi-trash-fill"></i>
 							</a>
 						</div>
