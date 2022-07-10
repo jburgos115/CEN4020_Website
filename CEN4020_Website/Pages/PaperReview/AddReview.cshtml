@@ -1,0 +1,188 @@
+﻿@page
+@model CEN4020_Website.Pages.PaperReview.AddReviewModel
+@{
+}
+<form method="post" class="form-horizontal">
+	<div class=" border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">Add a Review</h2>
+			<hr />
+		</div>
+      
+		<div class="mb-3">
+           <label class="control-label col-sm-3">Paper ID:</label>
+           <input asp-for="Review.PaperID" type="text" size="50"/>
+           <span asp-validation-for="Review.PaperID" class="text-danger"></span>
+        </div>
+       
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Reviewer ID:</label>
+           <input asp-for="Review.ReviewerID" type="text" size="50" />
+           <span asp-validation-for="Review.ReviewerID" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Appropriateness Of Topic:</label>
+           <input type="radio" value="1" asp-for="@Model.Review.AppropriatenessOfTopic" />1
+           <input type="radio" value="2" asp-for="@Model.Review.AppropriatenessOfTopic" />2
+           <input type="radio" value="3" asp-for="@Model.Review.AppropriatenessOfTopic" />3
+           <input type="radio" value="4" asp-for="@Model.Review.AppropriatenessOfTopic"/>4
+           <input type="radio" value="5" asp-for="@Model.Review.AppropriatenessOfTopic" />5
+           <span asp-validation-for="Review.AppropriatenessOfTopic" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Timeliness Of Topic:</label>
+           <input type="radio" value="1" asp-for="Review.TimelinessOfTopic" />1
+           <input type="radio" value="2" asp-for="Review.TimelinessOfTopic " />2
+           <input type="radio" value="3" asp-for="Review.TimelinessOfTopic " />3
+           <input type="radio" value="4" asp-for="Review.TimelinessOfTopic " />4
+           <input type="radio" value="5" asp-for="Review.TimelinessOfTopic" />5
+           <span asp-validation-for="Review.TimelinessOfTopic" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Supportive Evidence:</label>
+           <input type="radio" value="1" asp-for="Review.SupportiveEvidence" />1
+           <input type="radio" value="2" asp-for="Review.SupportiveEvidence" />2
+           <input type="radio" value="3" asp-for="Review.SupportiveEvidence" />3
+           <input type="radio" value="4" asp-for="Review.SupportiveEvidence" />4
+           <input type="radio" value="5" asp-for="Review.SupportiveEvidence" />5
+           <span asp-validation-for="Review.SupportiveEvidence" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Technical Quality:</label>
+           <input type="radio" value="1" asp-for="Review.TechnicalQuality " />1
+           <input type="radio" value="2" asp-for="Review.TechnicalQuality" />2
+           <input type="radio" value="3" asp-for="Review.TechnicalQuality" />3
+           <input type="radio" value="4" asp-for="Review.TechnicalQuality" />4
+           <input type="radio" value="5" asp-for="Review.TechnicalQuality" />5
+           <span asp-validation-for="Review.TechnicalQuality" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Scope Of Coverage:</label>
+           <input type="radio" value="1" asp-for= "Review.ScopeOfCoverage" />1
+           <input type="radio" value="2" asp-for= "Review.ScopeOfCoverage" />2
+           <input type="radio" value="3" asp-for= "Review.ScopeOfCoverage" />3
+           <input type="radio" value="4" asp-for= "Review.ScopeOfCoverage" />4
+           <input type="radio" value="5" asp-for= "Review.ScopeOfCoverage" />5
+           <span asp-validation-for="Review.ScopeOfCoverage" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Citation Of Previous Work:</label>
+           <input type="radio" value="1" asp-for="Review.CitationOfPreviousWork" />1
+           <input type="radio" value="2" asp-for="Review.CitationOfPreviousWork" />2
+           <input type="radio" value="3" asp-for="Review.CitationOfPreviousWork" />3
+           <input type="radio" value="4" asp-for="Review.CitationOfPreviousWork" />4
+           <input type="radio" value="5" asp-for="Review.CitationOfPreviousWork" />5
+           <span asp-validation-for="Review.CitationOfPreviousWork" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Originality:</label>
+           <input type="radio" value="1" asp-for="Review.Originality" />1
+           <input type="radio" value="2" asp-for="Review.Originality" />2
+           <input type="radio" value="3" asp-for="Review.Originality" />3
+           <input type="radio" value="4" asp-for="Review.Originality" />4
+           <input type="radio" value="5" asp-for="Review.Originality" />5
+           <span asp-validation-for="Review.Originality" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Content Comments:</label>
+           <input asp-for="Review.ContentComments" type="text" size="50"  />
+           <span asp-validation-for="Review.ContentComments" class="text-danger"></span>
+         </div>
+          <div class="mb-3">
+           <label class="control-label col-sm-3">Organization Of Paper:</label>
+           <input type="radio" value="1" asp-for="Review.OrganizationOfPaper" />1
+           <input type="radio" value="2" asp-for="Review.OrganizationOfPaper" />2
+           <input type="radio" value="3" asp-for="Review.OrganizationOfPaper" />3
+           <input type="radio" value="4" asp-for="Review.OrganizationOfPaper" />4
+           <input type="radio" value="5" asp-for="Review.OrganizationOfPaper" />5
+           <span asp-validation-for="Review.OrganizationOfPaper" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Clarity Of Main Message:</label>
+           <input type="radio" value="1" asp-for="Review.ClarityOfMainMessage" />1
+           <input type="radio" value="2" asp-for="Review.ClarityOfMainMessage" />2
+           <input type="radio" value="3" asp-for="Review.ClarityOfMainMessage" />3
+           <input type="radio" value="4" asp-for="Review.ClarityOfMainMessage" />4
+           <input type="radio" value="5" asp-for="Review.ClarityOfMainMessage" />5
+           <span asp-validation-for="Review.ClarityOfMainMessage" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Mechanics:</label>
+            <input type="radio" value="1" asp-for="Review.Mechanics" />1
+           <input type="radio" value="2" asp-for="Review.Mechanics" />2
+           <input type="radio" value="3" asp-for="Review.Mechanics" />3
+           <input type="radio" value="4" asp-for="Review.Mechanics" />4
+           <input type="radio" value="5" asp-for="Review.Mechanics" />5
+           <span asp-validation-for="Review.Mechanics" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Written Documents Comments:</label>
+           <input asp-for="Review.WrittenDocumentComments" type="text" size="50" />
+           <span asp-validation-for="Review.WrittenDocumentComments" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Suitability For Presentation:</label>
+           <input type="radio" value="1" asp-for="Review.SuitabilityForPresentation" />1
+           <input type="radio" value="2" asp-for="Review.SuitabilityForPresentation" />2
+           <input type="radio" value="3" asp-for="Review.SuitabilityForPresentation" />3
+           <input type="radio" value="4" asp-for="Review.SuitabilityForPresentation" />4
+           <input type="radio" value="5" asp-for="Review.SuitabilityForPresentation" />5
+           <span asp-validation-for="Review.SuitabilityForPresentation" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Potential Interest In Topic:</label>
+           <input type="radio" value="1" asp-for="Review.PotentialInterestInTopic" />1
+           <input type="radio" value="2" asp-for="Review.PotentialInterestInTopic" />2
+           <input type="radio" value="3" asp-for="Review.PotentialInterestInTopic" />3
+           <input type="radio" value="4" asp-for="Review.PotentialInterestInTopic" />4
+           <input type="radio" value="5" asp-for="Review.PotentialInterestInTopic" />5
+           <span asp-validation-for="Review.PotentialInterestInTopic" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Potential For Oral Presentation Comments:</label>
+           <input asp-for="Review.PotentialForOralPresentationComments" type="text" size="50"  />
+           <span asp-validation-for="Review.PotentialForOralPresentationComments" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Overall Rating:</label>
+            <input type="radio" value="1" asp-for="Review.OverallRating" />1
+           <input type="radio" value="2" asp-for="Review.OverallRating" />2
+           <input type="radio" value="3" asp-for="Review.OverallRating" />3
+           <input type="radio" value="4" asp-for="Review.OverallRating" />4
+           <input type="radio" value="5" asp-for="Review.OverallRating" />5
+           <span asp-validation-for="Review.OverallRating" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Overall Rating Comments:</label>
+           <input asp-for="Review.OverallRatingComments" type="text" size="50"  />
+           <span asp-validation-for="Review.OverallRatingComments" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Comfort Level Topic:</label>
+            <input type="radio" value="1" asp-for="Review.ComfortLevelTopic" />1
+           <input type="radio" value="2" asp-for="Review.ComfortLevelTopic" />2
+           <input type="radio" value="3" asp-for="Review.ComfortLevelTopic" />3
+           <input type="radio" value="4" asp-for="Review.ComfortLevelTopic" />4
+           <input type="radio" value="5" asp-for="Review.ComfortLevelTopic" />5
+           <span asp-validation-for="Review.ComfortLevelTopic" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Comfort Level Acceptability:</label>
+           <input type="radio" value="1" asp-for="Review.ComfortLevelAcceptability" />1
+           <input type="radio" value="2" asp-for="Review.ComfortLevelAcceptability" />2
+           <input type="radio" value="3" asp-for="Review.ComfortLevelAcceptability" />3
+           <input type="radio" value="4" asp-for="Review.ComfortLevelAcceptability" />4
+           <input type="radio" value="5" asp-for="Review.ComfortLevelAcceptability" />5
+           <span asp-validation-for="Review.ComfortLevelAcceptability" class="text-danger"></span>
+         </div>
+         <div class="mb-3">
+           <label class="control-label col-sm-3">Complete:</label>
+           <input type="radio" value="True" asp-for="Review.Complete" />True
+           <input type="radio" value="False" asp-for="Review.Complete" />False
+           <span asp-validation-for="Review.Complete" class="text-danger"></span>
+           
+         </div>
+		<button type="submit" class="btn btn-primary" style="width:150px;">Add</button>
+        <a asp-page="Index" class="btn btn-secondary" style="width:150px;"> Back to List</a>
+	</div>
+</form>

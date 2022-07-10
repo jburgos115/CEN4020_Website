@@ -1,8 +1,13 @@
+using CEN4020_Website.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddDbContext<Dbctxt>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("MyConn")
+    ));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

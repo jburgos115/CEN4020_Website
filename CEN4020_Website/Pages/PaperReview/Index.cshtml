@@ -1,0 +1,95 @@
+﻿@page
+@model CEN4020_Website.Pages.PaperReview.IndexModel
+@{
+}
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary">Reviews</h2>
+		</div>
+		<div class="col-6 text-end">
+			<a asp-page="addreview" class=" btn btn-primary">
+				<i class="bi bi-plus-square"></i> &nbsp;Add a New Review
+			</a>
+		</div>
+	</div>
+	<br>
+	<form asp-page-handler="GenerateReport" method="post"> 
+		<button class="btn btn-primary">Generate Report</button>
+	</form>
+	<br>
+	<br /><br />
+	<table class="table table-bordered table-striped" style = "width:100%">
+		<thead>
+			<tr>
+			
+            <th>PaperID</th>
+            <th>ReviewerID</th>
+            <th>AppropriatenessOfTopic</th>
+            <th>TimelinessOfTopic</th>
+            <th>SupportiveEvidence</th>
+            <th>TechnicalQuality</th>
+            <th>ScopeOfCoverage</th>
+            <th>CitationOfPreviousWork</th>
+            <th>Originality</th>
+            <th>ContentComments</th>
+            <th>OrganizationOfPaper</th>
+            <th>ClarityOfMainMessage</th>
+            <th>Mechanics</th>
+            <th>WrittenDocumentComments</th>
+            <th>SuitabilityForPresentation</th>
+            <th>PotentialInterestInTopic</th>
+            <th>PotentialForOralPresentationComments</th>
+            <th>OverallRating</th>
+            <th>OverallRatingComments</th>
+            <th>ComfortLevelTopic</th>
+            <th>ComfortLevelAcceptability</th>
+            <th>Complete</th>
+			<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var item in Model.Reviews)
+			{
+				<tr>
+					
+					<td width="50%">@item.PaperID</td>
+					<td width="50%">@item.ReviewerID</td>
+					<td width="50%">@item.ReviewerID</td>
+					<td width="50%">@item.AppropriatenessOfTopic</td>
+					<td width="50%">@item.TimelinessOfTopic</td>
+					<td width="50%">@item.SupportiveEvidence</td>
+					<td width="50%">@item.TechnicalQuality</td>
+					<td width="50%">@item.ScopeOfCoverage</td>
+					<td width="50%">@item.CitationOfPreviousWork</td>
+					<td width="50%">@item.Originality</td>
+					<td width="50%">@item.ContentComments</td>
+					<td width="50%">@item.OrganizationOfPaper</td>
+					<td width="50%">@item.OrganizationOfPaper</td>
+					<td width="50%">@item.ClarityOfMainMessage</td>
+					<td width="50%">@item.Mechanics</td>
+					<td width="50%">@item.WrittenDocumentComments</td>
+					<td width="50%">@item.SuitabilityForPresentation</td>
+					<td width="50%">@item.PotentialInterestInTopic</td>
+					<td width="50%">@item.PotentialForOralPresentationComments</td>
+					<td width="50%">@item.OverallRating</td>
+					<td width="50%">@item.OverallRatingComments</td>
+					<td width="50%">@item.ComfortLevelTopic</td>
+					<td width="50%">@item.Complete</td>
+					<td>
+						<div class="w-75 btn-group" role="group">
+						<a asp-page="EditReview" asp-route-id="@item.ReviewID" class="btn btn-primary mx-2">
+							<i class="bi bi-pencil-square"></i>
+						</a>
+						<a asp-page ="DeleteReview" asp-route-id="@item.ReviewID" class="btn btn-danger mx-2">
+
+							<i class="bi bi-trash-fill"></i>
+						</a>
+						</div>
+					</td>
+				</tr>
+				
+			}
+		</tbody>
+	</table>
+</div> 
