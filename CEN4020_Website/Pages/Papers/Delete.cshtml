@@ -1,0 +1,137 @@
+﻿@page
+@model CEN4020_Website.Pages.Papers.DeleteModel
+@{
+}
+
+<form method="post">
+	<input hidden asp-for="Paper.PaperID" />
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">Delete Paper</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Paper.Title">First Name</label>
+			<input asp-for="Paper.Title" disabled class="form-control" />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Paper.Title">First Name</label>
+			<input asp-for="Paper.Title" disabled class="form-control" />
+		</div>
+		<div class="mb-3">
+			<label>Select Your Research Topics</label><br>
+			<input asp-for="Paper.AnalysisOfAlgorithms" type="checkbox" value=true disabled>
+			<label asp-for="Paper.AnalysisOfAlgorithms">Analysis Of Algorithms</label><br>
+			
+			<input asp-for="Paper.Applications" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Applications">Applications</label><br>
+			
+			<input asp-for="Paper.Architecture" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Architecture">Architecture</label><br>
+			
+			<input asp-for="Paper.ArtificialIntelligence" type="checkbox" value=true disabled>
+			<label asp-for="Paper.ArtificialIntelligence">Artificial Intelligence</label><br>
+			
+			<input asp-for="Paper.ComputerEngineering" type="checkbox" value=true disabled>
+			<label asp-for="Paper.ComputerEngineering">Computer Engineering</label><br>
+			
+			<input asp-for="Paper.Curriculum" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Curriculum">Curriculum</label><br>
+			
+			<input asp-for="Paper.DataStructures" type="checkbox" value=true disabled>
+			<label asp-for="Paper.DataStructures">Data Structures</label><br>
+			
+			<input asp-for="Paper.Databases" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Databases">Databases</label><br>
+			
+			<input asp-for="Paper.DistanceLearning" type="checkbox" value=true disabled>
+			<label asp-for="Paper.DistanceLearning">Distanced Learning</label><br>
+			
+			<input asp-for="Paper.DistributedSystems" type="checkbox" value=true disabled>
+			<label asp-for="Paper.DistributedSystems">Distributed Systems</label><br>
+			
+			<input asp-for="Paper.EthicalSocietalIssues" type="checkbox" value=true disabled>
+			<label asp-for="Paper.EthicalSocietalIssues">Ethical Societal Issues</label><br>
+			
+			<input asp-for="Paper.FirstYearComputing" type="checkbox" value=true disabled>
+			<label asp-for="Paper.FirstYearComputing">First Year Computing</label><br>
+			
+			<input asp-for="Paper.GenderIssues" type="checkbox" value=true disabled>
+			<label asp-for="Paper.GenderIssues">Gender Issues</label><br>
+			
+			<input asp-for="Paper.GrantWriting" type="checkbox" value=true disabled>
+			<label asp-for="Paper.GrantWriting">Grant Writing</label><br>
+			
+			<input asp-for="Paper.GraphicsImageProcessing" type="checkbox" value=true disabled>
+			<label asp-for="Paper.GraphicsImageProcessing">Graphics Image Processing</label><br>
+			
+			<input asp-for="Paper.HumanComputerInteraction" type="checkbox" value=true disabled>
+			<label asp-for="Paper.HumanComputerInteraction">Human Computer Interaction</label><br>
+			
+			<input asp-for="Paper.LaboratoryEnvironments" type="checkbox" value=true disabled>
+			<label asp-for="Paper.LaboratoryEnvironments">Labratory Environments</label><br>
+			
+			<input asp-for="Paper.Literacy" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Literacy">Literacy</label><br>
+			
+			<input asp-for="Paper.MathematicsInComputing" type="checkbox" value=true disabled>
+			<label asp-for="Paper.MathematicsInComputing">Mathematics In Computing</label><br>
+			
+			<input asp-for="Paper.Multimedia" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Multimedia">Multimedia</label><br>
+			
+			<input asp-for="Paper.NetworkingDataCommunications" type="checkbox" value=true disabled>
+			<label asp-for="Paper.NetworkingDataCommunications">Networking Data Communications</label><br>
+			
+			<input asp-for="Paper.NonMajorCourses" type="checkbox" value=true disabled>
+			<label asp-for="Paper.NonMajorCourses">NonMajor Courses</label><br>
+			
+			<input asp-for="Paper.ObjectOrientedIssues" type="checkbox" value=true disabled>
+			<label asp-for="Paper.ObjectOrientedIssues">Object Oriented Issues</label><br>
+			
+			<input asp-for="Paper.OperatingSystems" type="checkbox" value=true disabled>
+			<label asp-for="Paper.OperatingSystems">Operating Systems</label><br>
+			
+			<input asp-for="Paper.ParallelsProcessing" type="checkbox" value=true disabled>
+			<label asp-for="Paper.ParallelsProcessing">Parallel Processing</label><br>
+			
+			<input asp-for="Paper.Pedagogy" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Pedagogy">Pedagogy</label><br>
+			
+			<input asp-for="Paper.ProgrammingLanguages" type="checkbox" value=true disabled>
+			<label asp-for="Paper.ProgrammingLanguages">Programming Languages</label><br>
+			
+			<input asp-for="Paper.Research" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Research">Research</label><br>
+			
+			<input asp-for="Paper.Security" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Security">Security</label><br>
+			
+			<input asp-for="Paper.SoftwareEngineering" type="checkbox" value=true disabled>
+			<label asp-for="Paper.SoftwareEngineering">Software Engineering</label><br>
+			
+			<input asp-for="Paper.SystemsAnalysisAndDesign" type="checkbox" value=true disabled>
+			<label asp-for="Paper.SystemsAnalysisAndDesign">Systems Analysis And Design</label><br>
+			
+			<input asp-for="Paper.UsingTechnologyInTheClassroom" type="checkbox" value=true disabled>
+			<label asp-for="Paper.UsingTechnologyInTheClassroom">Using Technology In The Classroom</label><br>
+			
+			<input asp-for="Paper.WebAndInternetProgramming" type="checkbox" value=true disabled>
+			<label asp-for="Paper.WebAndInternetProgramming">Web And Internet Programming</label><br>
+			
+			<input asp-for="Paper.Other" type="checkbox" value=true disabled>
+			<label asp-for="Paper.Other">Other</label><br><br>
+
+			<label asp-for="Paper.OtherDescription">If Other, please specify:</label><br>
+			<textarea asp-for="Paper.OtherDescription" rows="2" cols="30" maxlength="50" disabled></textarea>
+		</div>
+		<button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Cancel</a>
+	</div>
+</form>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial"/>
+	}
+}
