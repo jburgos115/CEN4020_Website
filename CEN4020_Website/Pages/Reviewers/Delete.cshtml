@@ -110,6 +110,113 @@
 			<label asp-for="Reviewer.Password">Password</label>
 			<input asp-for="Reviewer.Password" disabled class="form-control" />
 		</div>
+		<div class="mb-3">
+			<label>Select Your Research Topics</label><br>
+			<input asp-for="Reviewer.AnalysisOfAlgorithms" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.AnalysisOfAlgorithms">Analysis Of Algorithms</label><br>
+			
+			<input asp-for="Reviewer.Applications" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Applications">Applications</label><br>
+			
+			<input asp-for="Reviewer.Architecture" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Architecture">Architecture</label><br>
+			
+			<input asp-for="Reviewer.ArtificialIntelligence" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.ArtificialIntelligence">Artificial Intelligence</label><br>
+			
+			<input asp-for="Reviewer.ComputerEngineering" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.ComputerEngineering">Computer Engineering</label><br>
+			
+			<input asp-for="Reviewer.Curriculum" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Curriculum">Curriculum</label><br>
+			
+			<input asp-for="Reviewer.DataStructures" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.DataStructures">Data Structures</label><br>
+			
+			<input asp-for="Reviewer.Databases" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Databases">Databases</label><br>
+			
+			<input asp-for="Reviewer.DistancedLearning" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.DistancedLearning">Distanced Learning</label><br>
+			
+			<input asp-for="Reviewer.DistributedSystems" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.DistributedSystems">Distributed Systems</label><br>
+			
+			<input asp-for="Reviewer.EthicalSocietalIssues" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.EthicalSocietalIssues">Ethical Societal Issues</label><br>
+			
+			<input asp-for="Reviewer.FirstYearComputing" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.FirstYearComputing">First Year Computing</label><br>
+			
+			<input asp-for="Reviewer.GenderIssues" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.GenderIssues">Gender Issues</label><br>
+			
+			<input asp-for="Reviewer.GrantWriting" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.GrantWriting">Grant Writing</label><br>
+			
+			<input asp-for="Reviewer.GraphicsImageProcessing" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.GraphicsImageProcessing">Graphics Image Processing</label><br>
+			
+			<input asp-for="Reviewer.HumanComputerInteraction" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.HumanComputerInteraction">Human Computer Interaction</label><br>
+			
+			<input asp-for="Reviewer.LaboratoryEnvironments" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.LaboratoryEnvironments">Labratory Environments</label><br>
+			
+			<input asp-for="Reviewer.Literacy" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Literacy">Literacy</label><br>
+			
+			<input asp-for="Reviewer.MathematicsInComputing" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.MathematicsInComputing">Mathematics In Computing</label><br>
+			
+			<input asp-for="Reviewer.Multimedia" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Multimedia">Multimedia</label><br>
+			
+			<input asp-for="Reviewer.NetworkingDataCommunications" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.NetworkingDataCommunications">Networking Data Communications</label><br>
+			
+			<input asp-for="Reviewer.NonMajorCourses" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.NonMajorCourses">NonMajor Courses</label><br>
+			
+			<input asp-for="Reviewer.ObjectOrientedIssues" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.ObjectOrientedIssues">Object Oriented Issues</label><br>
+			
+			<input asp-for="Reviewer.OperatingSystems" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.OperatingSystems">Operating Systems</label><br>
+			
+			<input asp-for="Reviewer.ParallelProcessing" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.ParallelProcessing">Parallel Processing</label><br>
+			
+			<input asp-for="Reviewer.Pedagogy" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Pedagogy">Pedagogy</label><br>
+			
+			<input asp-for="Reviewer.ProgrammingLanguages" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.ProgrammingLanguages">Programming Languages</label><br>
+			
+			<input asp-for="Reviewer.Research" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Research">Research</label><br>
+			
+			<input asp-for="Reviewer.Security" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Security">Security</label><br>
+			
+			<input asp-for="Reviewer.SoftwareEngineering" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.SoftwareEngineering">Software Engineering</label><br>
+			
+			<input asp-for="Reviewer.SystemsAnalysisAndDesign" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.SystemsAnalysisAndDesign">Systems Analysis And Design</label><br>
+			
+			<input asp-for="Reviewer.UsingTechnologyInTheClassroom" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.UsingTechnologyInTheClassroom">Using Technology In The Classroom</label><br>
+			
+			<input asp-for="Reviewer.WebAndInternetProgramming" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.WebAndInternetProgramming">Web And Internet Programming</label><br>
+			
+			<input asp-for="Reviewer.Other" type="checkbox" value=true disabled>
+			<label asp-for="Reviewer.Other">Other</label><br><br>
+
+			<label asp-for="Reviewer.OtherDescription">If Other, please specify:</label><br>
+			<textarea asp-for="Reviewer.OtherDescription" rows="2" cols="30" maxlength="50" disabled></textarea>
+		</div>
 		<button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
 		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Previous</a>
 	</div>

@@ -21,11 +21,19 @@ public class IndexModel : PageModel
     public ActionResult OnPostGenerateReport()
     {
         var builder = new StringBuilder();
-        builder.AppendLine("ReviewerID,FirstName,MiddleInitial,LastName,Affiliation,Department,Address,City,State,ZipCode,PhoneNumber,Email");
+        builder.AppendLine("ReviewerID,FirstName,MiddleInitial,LastName,Affiliation,Department,Address,City,State,ZipCode,PhoneNumber,Email,AnalysisOfAlgorithms,Applications," + 
+                           "Architecture,ArtificialIntelligence,ComputerEngineering,Curriculum,DataStructures,Databases,DistancedLearning,DistributedSystems,EthicalSocietalIssues," +
+                           "FirstYearComputing,GenderIssues,GrantWriting,GraphicsImageProcessing,HumanComputerInteraction,LaboratoryEnvironments,Literacy,MathematicsInComputing," +
+                           "Multimedia,NetworkingDataCommunications,NonMajorCourses,ObjectOrientedIssues,OperatingSystems,ParallelProcessing,Pedagogy,ProgrammingLanguages,Research," +
+                           "Security,SoftwareEngineering,SystemsAnalysisAndDesign,UsingTechnologyInTheClassroom,WebAndInternetProgramming,Other,OtherDescription");
         //String formatStr = "{0,8:N0},{1,20},{2,13},{3,20},{4,25},{5,50},{6,20},{7,20},{8,8},{9,7:N0},{10,11:N0},{11,25}";
         foreach(var reviewer in _db.Reviewer)
         {
-            builder.AppendLine($"{reviewer.ReviewerID},{reviewer.FirstName},{reviewer.MiddleInitial},{reviewer.LastName},{reviewer.Affiliation},{reviewer.Department},{reviewer.Address},{reviewer.City},{reviewer.State},{reviewer.ZipCode},{reviewer.PhoneNumber},{reviewer.EmailAddress}");
+            builder.AppendLine($"{reviewer.ReviewerID},{reviewer.FirstName},{reviewer.MiddleInitial},{reviewer.LastName},{reviewer.Affiliation},{reviewer.Department},{reviewer.Address},{reviewer.City},{reviewer.State},{reviewer.ZipCode},{reviewer.PhoneNumber},{reviewer.EmailAddress}," +
+                                $"{reviewer.AnalysisOfAlgorithms},{reviewer.Applications},{reviewer.Architecture},{reviewer.ArtificialIntelligence},{reviewer.ComputerEngineering},{reviewer.Curriculum},{reviewer.DataStructures},{reviewer.Databases},{reviewer.DistancedLearning}," +
+                                $"{reviewer.DistributedSystems},{reviewer.EthicalSocietalIssues},{reviewer.FirstYearComputing},{reviewer.GenderIssues},{reviewer.GrantWriting},{reviewer.GraphicsImageProcessing},{reviewer.HumanComputerInteraction},{reviewer.LaboratoryEnvironments}," +
+                                $"{reviewer.Literacy},{reviewer.MathematicsInComputing},{reviewer.Multimedia},{reviewer.NetworkingDataCommunications},{reviewer.NonMajorCourses},{reviewer.ObjectOrientedIssues},{reviewer.OperatingSystems},{reviewer.ParallelProcessing},{reviewer.Pedagogy}," +
+                                $"{reviewer.ProgrammingLanguages},{reviewer.Research},{reviewer.Security},{reviewer.SoftwareEngineering},{reviewer.SystemsAnalysisAndDesign},{reviewer.UsingTechnologyInTheClassroom},{reviewer.WebAndInternetProgramming},{reviewer.Other},{reviewer.OtherDescription}");
 
             //builder.AppendFormat(formatStr, reviewer.ReviewerID, reviewer.FirstName, reviewer.MiddleInitial, reviewer.LastName, reviewer.Affiliation, reviewer.Department, reviewer.Address, reviewer.City, reviewer.State, reviewer.ZipCode, reviewer.PhoneNumber, reviewer.EmailAddress);
             //builder.AppendLine();
