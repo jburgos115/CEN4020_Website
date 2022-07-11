@@ -21,11 +21,11 @@ namespace CEN4020_Website.Pages.ListOfAuth
         {
         }
 
-        public async Task<IActionResult> OnPost(Model.Author author)
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                await _db.Author.AddAsync(author);
+                await _db.Author.AddAsync(Author);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "New Author Created Successfully";
                 return RedirectToPage("Index");

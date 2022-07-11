@@ -6,44 +6,29 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.ListOfAuth
 {
+    [BindProperties]
     public class RegisterModel : PageModel
     {
-        private readonly UserManager<IdentityUser> userManager;
-        [BindProperty]
+        private readonly ApplicationDbContext _db;
+        
         public Model.Author Author { get; set; }
-        public RegisterModel(UserManager<IdentityUser> userManager)
+
+        public RegisterModel(ApplicationDbContext db)
         {
-            this.userManager = userManager;
+            _db = db;
         }
         public void OnGet()
         {
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var userAuthor = new IdentityUser()
-                {
-                    
-
-                };
-
-                var result = await userManager.CreateAsync(userAuthor, Author.Password);
-                if(result.Succeeded)
-                {
-                    return RedirectToPage("/LoginRegister/Login");
-                }
-                else
-                {
-                    foreach(var error in result.Errors)
-                    {
-                        ModelState.AddModelError("AuthorRegister", error.Description);
-                    }
-
-                    return Page();
-                }
-                
+                await _db.Author.AddAsync(Author);
+                await _db.SaveChangesAsync();
+                TempData["success"] = "Registration was Successful";
+                return RedirectToPage("/LoginRegister/Login");
             }
 
             return Page();
