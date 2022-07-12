@@ -1,0 +1,18 @@
+﻿@page
+@model CEN4020_Website.Pages.DownloadFileModel
+@using CEN4020_Website.Pages
+@{
+}
+<table>
+	<tr>
+		<th>File Name</th>
+		<th></th>
+	</tr>
+	@foreach (GetFile file in Model.Files)
+	{
+		<tr>
+			<td>@file.FileName</td>
+			<td><a href="@Url.Page("Index", "DownloadFile", new {filename = file.FileName})">Download</a></td>
+		</tr>
+	}
+</table>

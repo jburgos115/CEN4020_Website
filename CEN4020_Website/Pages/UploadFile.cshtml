@@ -1,0 +1,17 @@
+﻿@page
+@model CEN4020_Website.Pages.UploadFileModel
+@{
+}
+
+@if(TempData["sucess"]!=null)
+{
+    <h2>@TempData["sucess"]</h2>
+}
+
+    <form method="post" enctype="multipart/form-data">
+        <span>Select File:</span>
+        <input type="file" name="postedFiles" multiple />
+        <input type="submit" value="Upload" asp-page-handler="Upload" />
+        <br/>
+      
+    </form>
