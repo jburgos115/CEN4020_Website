@@ -1,38 +1,37 @@
 using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.ListOfAuth
 {
-    [Authorize(Policy = "AdminCredentialsRequired")]
     [BindProperties]
-    public class EditModel : PageModel
+    public class RegisterModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-
+        
         public Model.Author Author { get; set; }
 
-        public EditModel(ApplicationDbContext db)
+        public RegisterModel(ApplicationDbContext db)
         {
             _db = db;
         }
-        public void OnGet(int id)
+        public void OnGet()
         {
-            Author = _db.Author.Find(id);
         }
 
-        public async Task<IActionResult> OnPost(Model.Author author)
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                _db.Author.Update(author);
+                await _db.Author.AddAsync(Author);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "Author Edited Successfully";
-                return RedirectToPage("Index");
+                TempData["success"] = "Registration was Successful";
+                return RedirectToPage("/LoginRegister/Login");
             }
-            return Page();
 
+            return Page();
         }
     }
 }
