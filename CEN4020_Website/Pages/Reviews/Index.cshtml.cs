@@ -21,21 +21,17 @@ public class IndexModel : PageModel
     public ActionResult OnPostGenerateReport()
     {
         var builder = new StringBuilder();
-        builder.AppendLine("ReviewID,AuthorID,FilenameOriginal,Filename,Title,Certification,Notes,AnalysisOfAlgorithms,Applications," + 
-                           "Architecture,ArtificialIntelligence,ComputerEngineering,Curriculum,DataStructures,Databases,DistancedLearning,DistributedSystems,EthicalSocietalIssues," +
-                           "FirstYearComputing,GenderIssues,GrantWriting,GraphicsImageProcessing,HumanComputerInteraction,LaboratoryEnvironments,Literacy,MathematicsInComputing," +
-                           "Multimedia,NetworkingDataCommunications,NonMajorCourses,ObjectOrientedIssues,OperatingSystems,ParallelProcessing,Pedagogy,ProgrammingLanguages,Research," +
-                           "Security,SoftwareEngineering,SystemsAnalysisAndDesign,UsingTechnologyInTheClassroom,WebAndInternetProgramming,Other,OtherDescription");
+        builder.AppendLine("ReviewID,PaperID,ReviewerID,AppropriatenessOfTopic,TimelinessOfTopic,SupportiveEvidence,TechnicalQuality," +
+                                $"ScopeOfCoverage,CitationOfPreviousWork,Originality,ContentComments,OrganizationOfPaper,ClarityOfMainMessage,Mechanics,WrittenDocumentComments,SuitabilityForPresentation," +
+                                $"PotentialInterestInTopic,PotentialForOralPresentationComments,OverallRating,OverallRatingComments,ComfortLevelTopic,ComfortLevelAcceptability,Complete");
         //String formatStr = "{0,8:N0},{1,20},{2,13},{3,20},{4,25},{5,50},{6,20},{7,20},{8,8},{9,7:N0},{10,11:N0},{11,25}";
-        foreach(var paper in _db.Review)
+        foreach(var review in _db.Review)
         {
-            builder.AppendLine($"{paper.ReviewID},{paper.AuthorID},{paper.FilenameOriginal},{paper.Filename},{paper.Title},{paper.Certification},{paper.NotesToReviewers}," +
-                                $"{paper.AnalysisOfAlgorithms},{paper.Applications},{paper.Architecture},{paper.ArtificialIntelligence},{paper.ComputerEngineering},{paper.Curriculum},{paper.DataStructures},{paper.Databases},{paper.DistanceLearning}," +
-                                $"{paper.DistributedSystems},{paper.EthicalSocietalIssues},{paper.FirstYearComputing},{paper.GenderIssues},{paper.GrantWriting},{paper.GraphicsImageProcessing},{paper.HumanComputerInteraction},{paper.LaboratoryEnvironments}," +
-                                $"{paper.Literacy},{paper.MathematicsInComputing},{paper.Multimedia},{paper.NetworkingDataCommunications},{paper.NonMajorCourses},{paper.ObjectOrientedIssues},{paper.OperatingSystems},{paper.ParallelsProcessing},{paper.Pedagogy}," +
-                                $"{paper.ProgrammingLanguages},{paper.Research},{paper.Security},{paper.SoftwareEngineering},{paper.SystemsAnalysisAndDesign},{paper.UsingTechnologyInTheClassroom},{paper.WebAndInternetProgramming},{paper.Other},{paper.OtherDescription}");
+            builder.AppendLine($"{review.ReviewID},{review.PaperID},{review.ReviewerID},{review.AppropriatenessOfTopic},{review.TimelinessOfTopic},{review.SupportiveEvidence},{review.TechnicalQuality}," +
+                                $"{review.ScopeOfCoverage},{review.CitationOfPreviousWork},{review.Originality},{review.ContentComments},{review.OrganizationOfPaper},{review.ClarityOfMainMessage},{review.Mechanics},{review.WrittenDocumentComments},{review.SuitabilityForPresentation}," +
+                                $"{review.PotentialInterestInTopic},{review.PotentialForOralPresentationComments},{review.OverallRating},{review.OverallRatingComments},{review.ComfortLevelTopic},{review.ComfortLevelAcceptability},{review.Complete}");
 
-            //builder.AppendFormat(formatStr, paper.ReviewID, paper.FirstName, paper.MiddleInitial, paper.LastName, paper.Affiliation, paper.Department, paper.Address, paper.City, paper.State, paper.ZipCode, paper.PhoneNumber, paper.EmailAddress);
+            //builder.AppendFormat(formatStr, review.ReviewID, review.FirstName, review.MiddleInitial, review.LastName, review.Affiliation, review.Department, review.Address, review.City, review.State, review.ZipCode, review.PhoneNumber, review.EmailAddress);
             //builder.AppendLine();
         }
         return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Reviews_Report.csv");

@@ -2,14 +2,14 @@ using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CEN4020_Website.Pages.Papers
+namespace CEN4020_Website.Pages.Reviews
 {
     [BindProperties]
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
-        public Model.Paper Paper { get; set; }
+        public Model.Review Review { get; set; }
 
         public EditModel(ApplicationDbContext db)
         {
@@ -17,16 +17,16 @@ namespace CEN4020_Website.Pages.Papers
         }
         public void OnGet(int id)
         {
-            Paper = _db.Paper.Find(id);
+            Review = _db.Review.Find(id);
         }
 
-        public async Task<IActionResult> OnPost(Model.Paper paper)
+        public async Task<IActionResult> OnPost(Model.Review review)
         {
             if (ModelState.IsValid)
             {
-                _db.Paper.Update(paper);
+                _db.Review.Update(review);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "Paper Edited Successfully";
+                TempData["success"] = "Review Edited Successfully";
                 return RedirectToPage("Index");
             }
             return Page();
