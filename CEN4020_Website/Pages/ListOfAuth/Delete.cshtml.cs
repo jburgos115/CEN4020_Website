@@ -1,9 +1,11 @@
 using CEN4020_Website.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.ListOfAuth
 {
+    [Authorize(Policy = "AdminCredentialsRequired")]
     [BindProperties]
     public class DeleteModel : PageModel
     {
