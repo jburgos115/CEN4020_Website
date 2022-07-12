@@ -18,9 +18,7 @@ namespace CEN4020_Website.Pages.LoginRegister
         }
 
         public async Task<IActionResult> OnPostAsync()
-        {
-            int idNumber = 0;
-            
+        {            
             if (!ModelState.IsValid)
                 return Page();
 
@@ -30,11 +28,11 @@ namespace CEN4020_Website.Pages.LoginRegister
                 {
                     connection.Open();
                     //Searches for User in Author Table
-                    String myCommand = "SELECT* FROM Author WHERE EmailAddress = @EmailAddress";
+                    String myCommand = "SELECT* FROM Author WHERE EmailAddress = @EmailAddress ";
                     SqlCommand cmd = new SqlCommand(myCommand, connection);
 
                     cmd.Parameters.Add("@EmailAddress", SqlDbType.NVarChar, 100).Value = ForgotPasswordInfo.Email;
-                    idNumber = Convert.ToInt32(cmd.ExecuteScalar());
+                    int idNumber = Convert.ToInt32(cmd.ExecuteScalar());
 
                     if (idNumber > 0)
                     {
@@ -45,11 +43,15 @@ namespace CEN4020_Website.Pages.LoginRegister
                         mm.IsBodyHtml = false;
                         mm.From = new MailAddress("");
 
-                        SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                        SmtpClient client = new SmtpClient("smtp.gmail.com");
+                        client.Port = 25;
                         client.EnableSsl = true;
                         client.UseDefaultCredentials = true;
+                        client.Credentials = new NetworkCredential("", "");
                         await client.SendMailAsync(mm);
-                }
+
+                        return RedirectToPage("/LoginRegister/ForgotPassword");
+                    }
                 }
             }
             catch (Exception ex)
