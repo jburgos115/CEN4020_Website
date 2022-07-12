@@ -1,17 +1,15 @@
 using CEN4020_Website.Data;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CEN4020_Website.Pages.ListOfAuth
+namespace CEN4020_Website.Pages.Reviews
 {
-    [Authorize(Policy = "AdminCredentialsRequired")]
     [BindProperties]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
-        public Model.Author Author { get; set; }
+        public Model.Review Review { get; set; }
 
         public CreateModel(ApplicationDbContext db)
         {
@@ -21,14 +19,14 @@ namespace CEN4020_Website.Pages.ListOfAuth
         {
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(Model.Review review)
         {
-            //Author.AuthorID = 4;
-            if (ModelState.IsValid)
+            //review.AuthorID = 4; //input authorID from cookie
+            if (ModelState.IsValid) //if db error occurs, then reload the page
             {
-                await _db.Author.AddAsync(Author);
+                await _db.Review.AddAsync(review);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "New Author Created Successfully";
+                TempData["success"] = "New Review Created Successfully";
                 return RedirectToPage("Index");
             }
 

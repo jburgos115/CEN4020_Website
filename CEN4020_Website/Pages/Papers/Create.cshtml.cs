@@ -1,17 +1,15 @@
 using CEN4020_Website.Data;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CEN4020_Website.Pages.ListOfAuth
+namespace CEN4020_Website.Pages.Papers
 {
-    [Authorize(Policy = "AdminCredentialsRequired")]
     [BindProperties]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
-        public Model.Author Author { get; set; }
+        public Model.Paper Paper { get; set; }
 
         public CreateModel(ApplicationDbContext db)
         {
@@ -21,14 +19,14 @@ namespace CEN4020_Website.Pages.ListOfAuth
         {
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(Model.Paper paper)
         {
-            //Author.AuthorID = 4;
-            if (ModelState.IsValid)
+            paper.AuthorID = 4; //input authorID from cookie
+            if (ModelState.IsValid) //if db error occurs, then reload the page
             {
-                await _db.Author.AddAsync(Author);
+                await _db.Paper.AddAsync(paper);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "New Author Created Successfully";
+                TempData["success"] = "New Paper Created Successfully";
                 return RedirectToPage("Index");
             }
 

@@ -9,5 +9,10 @@ public class ApplicationDbContext : DbContext
 	{
 
 	}
+
+	//List of Model objects
 	public DbSet<Author> Author { get; set; }
+	public DbSet<Reviewer> Reviewer { get; set; }
+	public DbSet<Paper> Paper { get; set; }
+	public DbSet<Review> Review { get; set; }
 }
