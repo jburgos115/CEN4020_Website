@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.LoginRegister
 {
+    //Allows User to Edit Their Profile
     [BindProperties]
     public class UserSettingModel : PageModel
     {
