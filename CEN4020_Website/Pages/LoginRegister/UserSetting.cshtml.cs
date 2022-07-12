@@ -27,7 +27,7 @@ namespace CEN4020_Website.Pages.LoginRegister
                 _db.Author.Update(author);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "Author Edited Successfully";
-                return RedirectToPage("/Index");
+                return Page();
             }
             return Page();
 
