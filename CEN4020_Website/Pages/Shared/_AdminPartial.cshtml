@@ -1,0 +1,10 @@
+﻿@using System.Security.Claims
+@if (User.HasClaim("PapersChair", "Admin")) 
+{
+	<li class="nav-item">
+		<a class="nav-link text-dark" asp-page="/ListOfAuth/Index">Authors</a>
+    </li>
+	<li class="nav-item">
+		<a class="nav-link text-dark" asp-page="/ListOfAuth/Index">Reviewers</a>
+    </li>
+}

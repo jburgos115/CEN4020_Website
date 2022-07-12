@@ -25,7 +25,7 @@ namespace CEN4020_Website.Pages
                 return Page();
 
             //Hard Coded Admin Login
-            if (LoginInfo.Email == "admin" && LoginInfo.Password == "admin")
+            if (LoginInfo.Email == "admin@cpms.com" && LoginInfo.Password == "admin")
             {
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Name, "admin"),
@@ -41,6 +41,7 @@ namespace CEN4020_Website.Pages
                 return RedirectToPage("/Index");
             }
             
+            //Checking Login credentials against data in Author and Reviewer Table
             try
             {
                 using (SqlConnection connection = new SqlConnection("Server =.; Database = CPMS; Trusted_Connection = True"))
@@ -52,9 +53,9 @@ namespace CEN4020_Website.Pages
 
                     cmd.Parameters.Add("@EmailAddress", SqlDbType.NVarChar, 100).Value = LoginInfo.Email;
                     cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 5).Value = LoginInfo.Password;
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    int idNumber = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (count > 0)
+                    if (idNumber > 0)
                     {
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
@@ -75,9 +76,9 @@ namespace CEN4020_Website.Pages
 
                     cmd.Parameters.Add("@EmailAddress", SqlDbType.NVarChar, 100).Value = LoginInfo.Email;
                     cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 5).Value = LoginInfo.Password;
-                    count = Convert.ToInt32(cmd.ExecuteScalar());
+                    idNumber = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (count > 0)
+                    if (idNumber > 0)
                     {
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
@@ -109,6 +110,7 @@ namespace CEN4020_Website.Pages
     {
         [Required]
         [Display(Name = "Email")]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
