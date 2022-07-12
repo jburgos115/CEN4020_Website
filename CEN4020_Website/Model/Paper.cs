@@ -2,13 +2,12 @@
 
 namespace CEN4020_Website.Model
 {
+    //declares the attributes of paper table
+    //these variables are used to register keep records of papers in the database
     public class Paper
     {
         [Key]
         public int PaperID { get; set; }
-
-        //[Required(ErrorMessage = "Please provide activity status", AllowEmptyStrings = false)]
-        //public string Active { get; set; }
 
         public int AuthorID { get; set; }
 

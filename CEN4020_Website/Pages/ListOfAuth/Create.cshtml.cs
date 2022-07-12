@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  CREATE FOR AUTHORS
+ */
+
 namespace CEN4020_Website.Pages.ListOfAuth
 {
     [Authorize(Policy = "AdminCredentialsRequired")]
@@ -21,9 +26,9 @@ namespace CEN4020_Website.Pages.ListOfAuth
         {
         }
 
+        //Controller for creating a new database record
         public async Task<IActionResult> OnPost()
         {
-            //Author.AuthorID = 4;
             if (ModelState.IsValid)
             {
                 await _db.Author.AddAsync(Author);

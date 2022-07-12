@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using System.Security.Claims;
 
+
+/*
+ *  CREATE FOR PAPERS
+ */
+
 namespace CEN4020_Website.Pages.Papers
 {
     [BindProperties]
@@ -21,6 +26,7 @@ namespace CEN4020_Website.Pages.Papers
         {
         }
 
+        //Controller for creating a new database record
         public async Task<IActionResult> OnPost(Model.Paper paper)
         {
             if (!User.HasClaim("PapersChair", "Admin"))

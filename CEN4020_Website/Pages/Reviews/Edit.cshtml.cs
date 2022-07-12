@@ -2,6 +2,11 @@ using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  EDIT FOR REVIEWS
+ */
+
 namespace CEN4020_Website.Pages.Reviews
 {
     [BindProperties]
@@ -15,11 +20,14 @@ namespace CEN4020_Website.Pages.Reviews
         {
             _db = db;
         }
+
+        //Retrieves data from database for a specific id and populates respective UI assets
         public void OnGet(int id)
         {
             Review = _db.Review.Find(id);
         }
 
+        //Controller to save changes
         public async Task<IActionResult> OnPost(Model.Review review)
         {
             if (ModelState.IsValid)

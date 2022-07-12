@@ -2,6 +2,11 @@ using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  CREATE FOR REVIEWERS
+ */
+
 namespace CEN4020_Website.Pages.Reviewers
 {
     [BindProperties]
@@ -19,6 +24,7 @@ namespace CEN4020_Website.Pages.Reviewers
         {
         }
 
+        //Controller for creating a new database record
         public async Task<IActionResult> OnPost(Model.Reviewer reviewer)
         {
             if (ModelState.IsValid)

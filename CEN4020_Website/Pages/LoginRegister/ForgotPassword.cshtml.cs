@@ -34,7 +34,7 @@ namespace CEN4020_Website.Pages.LoginRegister
 
             try
             {
-                using (SqlConnection connection = new SqlConnection("Server =.; Database = CPMS; Trusted_Connection = True"))
+                using (SqlConnection connection = new SqlConnection("Server =.\\sqlexpress; Database = CPMS; Trusted_Connection = True"))
                 {
                     connection.Open();
                     //Searches for User in Author Table

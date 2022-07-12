@@ -2,6 +2,11 @@ using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  CREATE FOR REVIEWS
+ */
+
 namespace CEN4020_Website.Pages.Reviews
 {
     [BindProperties]
@@ -19,6 +24,7 @@ namespace CEN4020_Website.Pages.Reviews
         {
         }
 
+        //Controller for creating a new database record
         public async Task<IActionResult> OnPost(Model.Review review)
         {
             review.AppropriatenessOfTopic = 0.00m;
@@ -41,15 +47,11 @@ namespace CEN4020_Website.Pages.Reviews
             review.ComfortLevelTopic = 0.00m;
             review.ComfortLevelAcceptability = 0.00m;
             review.Complete = false;
-            //if (ModelState.IsValid) //if db error occurs, then reload the page
-            //{
-                await _db.Review.AddAsync(review);
-                await _db.SaveChangesAsync();
-                TempData["success"] = "New Review Created Successfully";
-                return RedirectToPage("Index");
-            //}
 
-            //return Page();
+            await _db.Review.AddAsync(review);
+            await _db.SaveChangesAsync();
+            TempData["success"] = "New Review Created Successfully";
+            return RedirectToPage("Index");
         }
     }
 }

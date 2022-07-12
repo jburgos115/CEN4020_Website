@@ -2,6 +2,11 @@ using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  DELETE FOR REVIEWERS
+ */
+
 namespace CEN4020_Website.Pages.Reviewers
 {
     [BindProperties]
@@ -15,11 +20,14 @@ namespace CEN4020_Website.Pages.Reviewers
         {
             _db = db;
         }
+
+        //Retrieves data from database for a specific id and populates respective UI assets
         public void OnGet(int id)
         {
             Reviewer = _db.Reviewer.Find(id);
         }
 
+        //Controller to delete record from database
         public async Task<IActionResult> OnPost(Model.Reviewer reviewer)
         {
             var reviewerFromDb = _db.Reviewer.Find(reviewer.ReviewerID);

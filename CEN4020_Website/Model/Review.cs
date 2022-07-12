@@ -2,6 +2,8 @@
 
 namespace CEN4020_Website.Model
 {
+    //declares the attributes of review table
+    //these variables are used to register keep records of reviews in the database
     public class Review
     {
         [Key]

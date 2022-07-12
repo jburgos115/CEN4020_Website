@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  DELETE FOR AUTHORS
+ */
+
 namespace CEN4020_Website.Pages.ListOfAuth
 {
     [Authorize(Policy = "AdminCredentialsRequired")]
@@ -17,11 +22,14 @@ namespace CEN4020_Website.Pages.ListOfAuth
         {
             _db = db;
         }
+
+        //Retrieves data from database for a specific id and populates respective UI assets
         public void OnGet(int id)
         {
             Author = _db.Author.Find(id);
         }
 
+        //Controller to delete record from database
         public async Task<IActionResult> OnPost(Model.Author author)
         {
             var authorFromDb = _db.Author.Find(author.AuthorID);

@@ -1,6 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  UPLOAD FILE FOR AUTHORS
+ */
+
 namespace CEN4020_Website.Pages.Papers
 {
     public class UploadModel : PageModel
@@ -11,10 +16,13 @@ namespace CEN4020_Website.Pages.Papers
             _environment = environment;
         }
 
+        //Retrieves PaperID to attach to file upload
         public void OnGetPaperID(int PaperID)
         {
             TempData["id"] = PaperID;
         }
+
+        //Controller for uploading a pdf file to wwwroot/Uploads folder as a custom named file
         public void OnPostUpload(List<IFormFile> postedFiles)
         {
             string myPath = this._environment.WebRootPath;

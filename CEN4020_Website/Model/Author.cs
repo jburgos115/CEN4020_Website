@@ -2,6 +2,9 @@
 
 namespace CEN4020_Website.Model
 {
+    //declares the attributes of author table
+    //these variables are used to register keep records of authors in the database
+
     public class Author
     {
         [Key]

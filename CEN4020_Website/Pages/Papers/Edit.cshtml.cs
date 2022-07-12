@@ -2,6 +2,11 @@ using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+/*
+ *  EDIT FOR PAPERS
+ */
+
 namespace CEN4020_Website.Pages.Papers
 {
     [BindProperties]
@@ -15,11 +20,14 @@ namespace CEN4020_Website.Pages.Papers
         {
             _db = db;
         }
+
+        //Retrieves data from database for a specific id and populates respective UI assets
         public void OnGet(int id)
         {
             Paper = _db.Paper.Find(id);
         }
 
+        //Controller to save changes
         public async Task<IActionResult> OnPost(Model.Paper paper)
         {
             if (ModelState.IsValid)

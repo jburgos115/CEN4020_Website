@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Reports\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="Pages\LoginRegister\UserSettingAuthor.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
