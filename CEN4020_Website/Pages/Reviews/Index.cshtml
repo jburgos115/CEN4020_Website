@@ -15,11 +15,14 @@
 		<div class="col-6">
 			<h2 class="text-primary"> Submit Review </h2>
 		</div>
-		<div class="col-6 text-end">
-			<a asp-page="create" class="btn btn-primary">
-				<i class="bi bi-pencil-square"></i> &nbsp;Submit
-			</a>
-		</div>
+		@if (@User.HasClaim("PapersChair", "Admin"))
+		{
+			<div class="col-6 text-end">
+				<a asp-page="create" class="btn btn-primary">
+					<i class="bi bi-pencil-square"></i> &nbsp;Create
+				</a>
+			</div>
+		}
 	</div>
 
 	@if (@User.HasClaim("PapersChair", "Admin"))
@@ -37,6 +40,7 @@
 				<td>ReviewID</td>
 				<td>PaperID</td>
 				<td>ReviewerID</td>
+				<td>Download</td>
 				<td>AppropriatenessOfTopic</td>
 				<td>TimelinessOfTopic</td>
 				<td>SupportiveEvidence</td>
@@ -68,6 +72,9 @@
 						<td width="50%">@obj.ReviewID</td>
 						<td width="50%">@obj.PaperID</td>
 						<td width="50%">@obj.ReviewerID</td>
+
+						<td width="50%"><a asp-page-handler="Download" asp-route-filename=@(String.Format("Paper{0}.pdf", obj.PaperID))>Download</a></td>
+
 						<td width="50%">@obj.AppropriatenessOfTopic</td>
 						<td width="50%">@obj.TimelinessOfTopic</td>
 						<td width="50%">@obj.SupportiveEvidence</td>

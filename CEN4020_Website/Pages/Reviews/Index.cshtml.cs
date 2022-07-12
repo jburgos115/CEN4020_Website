@@ -7,10 +7,12 @@ namespace CEN4020_Website.Pages.Reviews;
 public class IndexModel : PageModel
 {
     private readonly ApplicationDbContext _db;
+    private readonly IWebHostEnvironment _webHostEnvironment;
     public IEnumerable<Model.Review> Review { get; set; }
-    public IndexModel(ApplicationDbContext db)
+    public IndexModel(ApplicationDbContext db, IWebHostEnvironment webHostEnvironment)
     {
         _db = db;
+        this._webHostEnvironment = webHostEnvironment;
     }
 
     public void OnGet()
@@ -35,5 +37,11 @@ public class IndexModel : PageModel
             //builder.AppendLine();
         }
         return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Reviews_Report.csv");
+    }
+    public FileResult OnGetDownload(string filename)
+    {
+        string path = Path.Combine(this._webHostEnvironment.WebRootPath, "Uploads/") + filename;
+        byte[] buffer = System.IO.File.ReadAllBytes(path);
+        return File(buffer, "application/octet-stream", filename);
     }
 }
