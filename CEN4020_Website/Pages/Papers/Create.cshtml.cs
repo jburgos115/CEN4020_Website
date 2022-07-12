@@ -2,6 +2,8 @@ using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+using System.Security.Claims;
+
 namespace CEN4020_Website.Pages.Papers
 {
     [BindProperties]
@@ -21,16 +23,17 @@ namespace CEN4020_Website.Pages.Papers
 
         public async Task<IActionResult> OnPost(Model.Paper paper)
         {
-            paper.AuthorID = 4; //input authorID from cookie
-            if (ModelState.IsValid) //if db error occurs, then reload the page
-            {
+            if (!User.HasClaim("PapersChair", "Admin"))
+                paper.AuthorID = int.Parse(User.FindFirst("UserId").Value); //input authorID from cookie
+            //if (ModelState.IsValid) //if db error occurs, then reload the page
+            //{
                 await _db.Paper.AddAsync(paper);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "New Paper Created Successfully";
-                return RedirectToPage("Index");
-            }
+                return RedirectToPage("Upload", "PaperID", new { PaperID = paper.PaperID });
+            //}
 
-            return Page();
+            //return Page();
         }
     }
 }

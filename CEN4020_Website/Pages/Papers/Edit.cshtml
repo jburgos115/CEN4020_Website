@@ -3,6 +3,8 @@
 @{
 }
 
+@using System.Security.Claims
+
 <form method="post">
 	<input hidden asp-for="Paper.PaperID" />
 	<div class="border p-3 mt-4">
@@ -18,10 +20,20 @@
 			<label asp-for="Paper.Certification">Certification</label>
 			<input asp-for="Paper.Certification" maxlength="3" class="form-control" />
 		</div>
-		<div class="mb-3">
-			<label asp-for="Paper.AuthorID">Associated Author ID</label>
-			<input asp-for="Paper.AuthorID" class="form-control" />
-		</div>
+		@if (@User.HasClaim("PapersChair", "Admin"))
+		{
+			<div class="mb-3">
+				<label asp-for="Paper.AuthorID">Associated Author ID</label>
+				<input asp-for="Paper.AuthorID" class="form-control" />
+			</div>
+		}
+		else
+		{
+			<div hidden class="mb-3">
+				<label asp-for="Paper.AuthorID">Associated Author ID</label>
+				<input asp-for="Paper.AuthorID" class="form-control" />
+			</div>
+		}
 		<div class="mb-3">
 			<label asp-for="Paper.FilenameOriginal">Original Filename</label>
 			<input asp-for="Paper.FilenameOriginal" class="form-control" />
