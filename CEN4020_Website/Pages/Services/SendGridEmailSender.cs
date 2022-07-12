@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System.Threading.Tasks;
 
 namespace CEN4020_Website.Pages.Services
 {
