@@ -1,4 +1,5 @@
 using CEN4020_Website.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -11,14 +12,22 @@ namespace CEN4020_Website.Pages.LoginRegister
 {
     public class ForgotPasswordModel : PageModel
     {
+        private readonly IEmailSender _emailSender;
         [BindProperty]
         public ForgotPasswordInfo ForgotPasswordInfo { get; set; }
+        public ForgotPasswordModel(IEmailSender emailSender)
+        {
+            _emailSender = emailSender;
+        }
+
         public void OnGet()
         {
         }
 
         public async Task<IActionResult> OnPostAsync()
-        {            
+        {
+            TempData["Author"] = "false";
+            TempData["Reviewer"] = "false";
             if (!ModelState.IsValid)
                 return Page();
 
@@ -36,21 +45,27 @@ namespace CEN4020_Website.Pages.LoginRegister
 
                     if (idNumber > 0)
                     {
-                        MailMessage mm = new MailMessage();
-                        mm.To.Add(ForgotPasswordInfo.Email);
-                        mm.Subject = "Password Reset";
-                        mm.Body = "Click this link to reset your password";
-                        mm.IsBodyHtml = false;
-                        mm.From = new MailAddress("");
+                        string emailResetCode = "Use this code to reset password 98";
+                        await _emailSender.SendEmailAsync(ForgotPasswordInfo.Email, "Password Reset", emailResetCode);
+                        TempData["Password"] = idNumber;
+                        TempData["Author"] = "true";
+                        return RedirectToPage("/LoginRegister/ConfirmationCode");
+                    }
 
-                        SmtpClient client = new SmtpClient("smtp.gmail.com");
-                        client.Port = 25;
-                        client.EnableSsl = true;
-                        client.UseDefaultCredentials = true;
-                        client.Credentials = new NetworkCredential("", "");
-                        await client.SendMailAsync(mm);
+                    //Searches for User in Reviewer Table if not found in Author
+                    myCommand = "SELECT* FROM Reviewer WHERE EmailAddress = @EmailAddress ";
+                    cmd = new SqlCommand(myCommand, connection);
 
-                        return RedirectToPage("/LoginRegister/ForgotPassword");
+                    cmd.Parameters.Add("@EmailAddress", SqlDbType.NVarChar, 100).Value = ForgotPasswordInfo.Email;
+                    idNumber = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (idNumber > 0)
+                    {
+                        string emailResetCode = "Use this code to reset password 98";
+                        await _emailSender.SendEmailAsync(ForgotPasswordInfo.Email, "Password Reset", emailResetCode);
+                        TempData["Password"] = idNumber;
+                        TempData["Reviewer"] = "true";
+                        return RedirectToPage("/LoginRegister/ConfirmationCode");
                     }
                 }
             }
@@ -60,7 +75,7 @@ namespace CEN4020_Website.Pages.LoginRegister
                     ex.Message);
             }
 
-            ModelState.AddModelError("", "Incorrect Email Address or Password");
+            ModelState.AddModelError("", "Incorrect Email Address");
             return Page();
         }
     }

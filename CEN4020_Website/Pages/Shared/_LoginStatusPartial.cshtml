@@ -4,8 +4,15 @@
 	<form method="post" style="color:cornsilk" class="form-inline" asp-page="/LoginRegister/Logout">
 		Welcome @User.Identity.Name
 		<button type="submit" class="btn btn-primary">Logout</button>
-		<a class="btn btn-primary" asp-page="/LoginRegister/UserSetting" asp-route-id="@User.FindFirst("UserId").Value">
-			<i class="bi bi-person-square"></i> &nbsp;Profile</a>
+		@if(User.HasClaim("PapersChair", "Admin"))
+		{
+			<a class="btn btn-primary" asp-page="/LoginRegister/UserSetting">
+				<i class="bi bi-person-square"></i> &nbsp;Profile</a>
+		}
+		else {
+			<a class="btn btn-primary" asp-page="/LoginRegister/UserSetting" asp-route-id="@User.FindFirst("UserId").Value">
+				<i class="bi bi-person-square"></i> &nbsp;Profile</a>
+		}
 	</form>
 }
 else
