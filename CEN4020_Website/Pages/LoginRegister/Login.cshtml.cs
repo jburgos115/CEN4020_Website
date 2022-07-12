@@ -60,8 +60,9 @@ namespace CEN4020_Website.Pages
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
                             new Claim(ClaimTypes.Email, LoginInfo.Email),
-                            new Claim("UserAuthor", "Author")
-                        };
+                            new Claim("UserAuthor", "Author"),
+                            new Claim("UserId", idNumber.ToString())
+                    };
 
                         var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
@@ -83,7 +84,8 @@ namespace CEN4020_Website.Pages
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
                             new Claim(ClaimTypes.Email, LoginInfo.Email),
-                            new Claim("UserReviewer", "Reviewer")
+                            new Claim("UserReviewer", "Reviewer"),
+                            new Claim("UserId", idNumber.ToString())
                         };
 
                         var identity = new ClaimsIdentity(claims, "MyCookieAuth");
