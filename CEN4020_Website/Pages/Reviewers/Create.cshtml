@@ -11,37 +11,37 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.FirstName">First Name</label>
-			<input asp-for="Reviewer.FirstName" class="form-control" />
+			<input asp-for="Reviewer.FirstName" class="form-control" maxlength="50" />
 			<span asp-validation-for="Reviewer.FirstName" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.MiddleInitial">Middle Initial</label>
-			<input asp-for="Reviewer.MiddleInitial" class="form-control" />
+			<input asp-for="Reviewer.MiddleInitial" class="form-control" maxlength="1" />
 			<span asp-validation-for="Reviewer.MiddleInitial" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.LastName">Last Name</label>
-			<input asp-for="Reviewer.LastName" class="form-control" />
+			<input asp-for="Reviewer.LastName" class="form-control" maxlength="50" />
 			<span asp-validation-for="Reviewer.LastName" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.Affiliation">Affiliation</label>
-			<input asp-for="Reviewer.Affiliation" class="form-control" />
+			<input asp-for="Reviewer.Affiliation" class="form-control" maxlength="50" />
 			<span asp-validation-for="Reviewer.Affiliation" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.Department">Departmant</label>
-			<input asp-for="Reviewer.Department" class="form-control" />
+			<input asp-for="Reviewer.Department" class="form-control" maxlength="50" />
 			<span asp-validation-for="Reviewer.Department" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.Address">Address</label>
-			<input asp-for="Reviewer.Address" class="form-control" />
+			<input asp-for="Reviewer.Address" class="form-control" maxlength="50" />
 			<span asp-validation-for="Reviewer.Address" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.City">City</label>
-			<input asp-for="Reviewer.City" class="form-control" />
+			<input asp-for="Reviewer.City" class="form-control" maxlength="50" />
 			<span asp-validation-for="Reviewer.City" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
@@ -103,22 +103,22 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.ZipCode">Zip Code</label>
-			<input asp-for="Reviewer.ZipCode" class="form-control" />
+			<input asp-for="Reviewer.ZipCode" class="form-control" maxlength="10" />
 			<span asp-validation-for="Reviewer.ZipCode" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.PhoneNumber">Phone Number</label>
-			<input asp-for="Reviewer.PhoneNumber" class="form-control" />
+			<input asp-for="Reviewer.PhoneNumber" class="form-control" maxlength="50" placeholder="(888) 888-8888" />
 			<span asp-validation-for="Reviewer.PhoneNumber" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.EmailAddress">Email</label>
-			<input asp-for="Reviewer.EmailAddress" class="form-control" />
+			<input asp-for="Reviewer.EmailAddress" class="form-control" maxlength="100" />
 			<span asp-validation-for="Reviewer.EmailAddress" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Reviewer.Password">Password</label>
-			<input asp-for="Reviewer.Password" class="form-control" />
+			<input asp-for="Reviewer.Password" type="password" class="form-control" maxlength="5" />
 			<span asp-validation-for="Reviewer.Password" class="text-danger"></span>
 		</div>
 		<div class="mb-3">

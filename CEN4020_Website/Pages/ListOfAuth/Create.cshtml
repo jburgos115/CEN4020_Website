@@ -12,37 +12,37 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.FirstName">First Name</label>
-			<input asp-for="Author.FirstName" class="form-control" />
+			<input asp-for="Author.FirstName" class="form-control" maxlength="50" />
 			<span asp-validation-for="Author.FirstName" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.MiddleInitial">Middle Initial</label>
-			<input asp-for="Author.MiddleInitial" class="form-control" />
+			<input asp-for="Author.MiddleInitial" class="form-control" maxlength="1" />
 			<span asp-validation-for="Author.MiddleInitial" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.LastName">Last Name</label>
-			<input asp-for="Author.LastName" class="form-control" />
+			<input asp-for="Author.LastName" class="form-control" maxlength="50" />
 			<span asp-validation-for="Author.LastName" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Affiliation">Affiliation</label>
-			<input asp-for="Author.Affiliation" class="form-control" />
+			<input asp-for="Author.Affiliation" class="form-control" maxlength="50" />
 			<span asp-validation-for="Author.Affiliation" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Department">Departmant</label>
-			<input asp-for="Author.Department" class="form-control" />
+			<input asp-for="Author.Department" class="form-control" maxlength="50" />
 			<span asp-validation-for="Author.Department" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Address">Address</label>
-			<input asp-for="Author.Address" class="form-control" />
+			<input asp-for="Author.Address" class="form-control" maxlength="50" />
 			<span asp-validation-for="Author.Address" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.City">City</label>
-			<input asp-for="Author.City" class="form-control" />
+			<input asp-for="Author.City" class="form-control"  maxlength="50" />
 			<span asp-validation-for="Author.City" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
@@ -104,22 +104,22 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.ZipCode">Zip Code</label>
-			<input asp-for="Author.ZipCode" class="form-control" />
+			<input asp-for="Author.ZipCode" class="form-control" maxlength="10" />
 			<span asp-validation-for="Author.ZipCode" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.PhoneNumber">Phone Number</label>
-			<input asp-for="Author.PhoneNumber" class="form-control" />
+			<input asp-for="Author.PhoneNumber" class="form-control" maxlength="50" placeholder="(888) 888-8888" />
 			<span asp-validation-for="Author.PhoneNumber" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.EmailAddress">Email</label>
-			<input asp-for="Author.EmailAddress" class="form-control" />
+			<input asp-for="Author.EmailAddress" class="form-control" maxlength="100" />
 			<span asp-validation-for="Author.EmailAddress" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Password">Password</label>
-			<input asp-for="Author.Password" class="form-control" />
+			<input asp-for="Author.Password" type="password" class="form-control" maxlength="5" />
 			<span asp-validation-for="Author.Password" class="text-danger"></span>
 		</div>
 		<button type="submit" class="btn btn-primary" style="width:150px;">Register</button>

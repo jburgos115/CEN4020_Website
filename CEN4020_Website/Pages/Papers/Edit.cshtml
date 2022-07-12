@@ -12,7 +12,7 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="Paper.Title">Title</label>
-			<input asp-for="Paper.Title" class="form-control" />
+			<input asp-for="Paper.Title" class="form-control" maxlength="200" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Paper.Certification">Certification</label>
@@ -24,11 +24,11 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="Paper.FilenameOriginal">Original Filename</label>
-			<input asp-for="Paper.FilenameOriginal" class="form-control" />
+			<input asp-for="Paper.FilenameOriginal" class="form-control" maxlength="100" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Paper.Filename">Filename</label>
-			<input asp-for="Paper.Filename" class="form-control" />
+			<input asp-for="Paper.Filename" class="form-control" maxlength="100" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Paper.NotesToReviewers">Notes to Reviewers</label><br>
