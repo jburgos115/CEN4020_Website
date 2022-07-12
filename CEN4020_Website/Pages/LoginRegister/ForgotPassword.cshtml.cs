@@ -41,13 +41,13 @@ namespace CEN4020_Website.Pages.LoginRegister
                         mm.Subject = "Password Reset";
                         mm.Body = "Click this link to reset your password";
                         mm.IsBodyHtml = false;
-                        mm.From = new MailAddress("davidjustin32598@gmail.com");
+                        mm.From = new MailAddress("");
 
                         SmtpClient client = new SmtpClient("smtp.gmail.com");
                         client.Port = 25;
                         client.EnableSsl = true;
                         client.UseDefaultCredentials = true;
-                        client.Credentials = new NetworkCredential("davidjustin32598@gmail.com", "ChamberpowerH98@a!");
+                        client.Credentials = new NetworkCredential("", "");
                         await client.SendMailAsync(mm);
 
                         return RedirectToPage("/LoginRegister/ForgotPassword");
