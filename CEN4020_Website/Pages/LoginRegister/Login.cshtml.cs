@@ -10,6 +10,7 @@ using System.Security.Claims;
 
 namespace CEN4020_Website.Pages
 {
+    //Checks the User Login Credentials
     public class LoginModel : PageModel
     {
         [BindProperty]
@@ -27,12 +28,13 @@ namespace CEN4020_Website.Pages
             //Hard Coded Admin Login
             if (LoginInfo.Email == "admin@cpms.com" && LoginInfo.Password == "admin")
             {
+                //Builds the Users Id card
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@cpms.com"),
                     new Claim("PapersChair", "Admin")
                 };
-
+                //Creates Cookie for user session
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
 
@@ -57,13 +59,14 @@ namespace CEN4020_Website.Pages
 
                     if (idNumber > 0)
                     {
+                        //Builds the Users Id card
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
                             new Claim(ClaimTypes.Email, LoginInfo.Email),
                             new Claim("UserAuthor", "Author"),
                             new Claim("UserId", idNumber.ToString())
                     };
-
+                        //Creates Cookie for user session
                         var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
 
@@ -81,13 +84,14 @@ namespace CEN4020_Website.Pages
 
                     if (idNumber > 0)
                     {
+                        //Builds the Users Id card
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
                             new Claim(ClaimTypes.Email, LoginInfo.Email),
                             new Claim("UserReviewer", "Reviewer"),
                             new Claim("UserId", idNumber.ToString())
                         };
-
+                        //Creates Cookie for user session
                         var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
 

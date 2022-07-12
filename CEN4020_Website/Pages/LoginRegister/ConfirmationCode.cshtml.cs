@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CEN4020_Website.Pages.LoginRegister
 {
+    //Checks that the User is who they say they are by checking the sent confirmation code
     public class ConfirmationCodeModel : PageModel
     {
         [BindProperty]
@@ -18,11 +19,12 @@ namespace CEN4020_Website.Pages.LoginRegister
                 return Page();
 
             string confCode = "98";
-
+            //If Author sends them to Author Page
             if(ConfirmationCodeInfo.Code == confCode && TempData["Author"].ToString() == "true")
             {
                 return RedirectToPage("/LoginRegister/ResetPasswordAuthor");
             }
+            //If Author sends them to Reviwer Page
             else if (ConfirmationCodeInfo.Code == confCode && TempData["Reviewer"].ToString() == "true")
             {
                 return RedirectToPage("/LoginRegister/ResetPasswordReviewer");

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.LoginRegister
 {
+    //Allows the Reviewer to reset their password if correctly inputted reset code
     [BindProperties]
     public class ResetPasswordReviewerModel : PageModel
     {

@@ -10,6 +10,7 @@ using System.Net.Mail;
 
 namespace CEN4020_Website.Pages.LoginRegister
 {
+    //Searches the databse for existing email and sends user reset code to email
     public class ForgotPasswordModel : PageModel
     {
         private readonly IEmailSender _emailSender;
@@ -47,8 +48,8 @@ namespace CEN4020_Website.Pages.LoginRegister
                     {
                         string emailResetCode = "Use this code to reset password 98";
                         await _emailSender.SendEmailAsync(ForgotPasswordInfo.Email, "Password Reset", emailResetCode);
-                        TempData["Password"] = idNumber;
-                        TempData["Author"] = "true";
+                        TempData["Password"] = idNumber; //Stores the Id of User to be used for password reset
+                        TempData["Author"] = "true"; //Used to verify is user is author or reviewer
                         return RedirectToPage("/LoginRegister/ConfirmationCode");
                     }
 
@@ -63,8 +64,8 @@ namespace CEN4020_Website.Pages.LoginRegister
                     {
                         string emailResetCode = "Use this code to reset password 98";
                         await _emailSender.SendEmailAsync(ForgotPasswordInfo.Email, "Password Reset", emailResetCode);
-                        TempData["Password"] = idNumber;
-                        TempData["Reviewer"] = "true";
+                        TempData["Password"] = idNumber; //Stores the Id of User to be used for password reset
+                        TempData["Reviewer"] = "true"; //Used to verify is user is author or reviewer
                         return RedirectToPage("/LoginRegister/ConfirmationCode");
                     }
                 }

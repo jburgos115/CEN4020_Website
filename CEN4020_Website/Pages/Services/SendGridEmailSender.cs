@@ -24,14 +24,14 @@ namespace CEN4020_Website.Pages.Services
         {
             await Execute(Options.SendGridKey, subject, message, email);
         }
-
+        //Uses our SendGrid API Key to build the email and send it using the specified email
         private async Task<Response> Execute(
-            string apiKey,
+            string SendGridAPIKey,
             string subject,
             string message,
             string email)
         {
-            var client = new SendGridClient(apiKey);
+            var client = new SendGridClient(SendGridAPIKey);
             var msg = new SendGridMessage()
             {
                 From = new EmailAddress(Options.SenderEmail, Options.SenderName),
@@ -39,6 +39,7 @@ namespace CEN4020_Website.Pages.Services
                 PlainTextContent = message,
                 HtmlContent = message
             };
+            //Adds the email to recieve the message
             msg.AddTo(new EmailAddress(email));
 
             // disable tracking settings

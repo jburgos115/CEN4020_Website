@@ -4,14 +4,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.LoginRegister
 {
+    //Allows the Author to reset their password if correctly inputted reset code
     [BindProperties]
-    public class ResetPasswordModel : PageModel
+    public class ResetPasswordAuthorModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
         public Model.Author Author { get; set; }
 
-        public ResetPasswordModel(ApplicationDbContext db)
+        public ResetPasswordAuthorModel(ApplicationDbContext db)
         {
             _db = db;
         }
