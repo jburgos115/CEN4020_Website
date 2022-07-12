@@ -6,8 +6,7 @@
 		<button type="submit" class="btn btn-primary">Logout</button>
 		@if(User.HasClaim("PapersChair", "Admin"))
 		{
-			<a class="btn btn-primary" asp-page="/LoginRegister/UserSetting">
-				<i class="bi bi-person-square"></i> &nbsp;Profile</a>
+			//admin credentials are hard coded
 		}
 		else {
 			<a class="btn btn-primary" asp-page="/LoginRegister/UserSetting" asp-route-id="@User.FindFirst("UserId").Value">

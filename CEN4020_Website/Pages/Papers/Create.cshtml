@@ -23,6 +23,14 @@
 				<label asp-for="Paper.AuthorID">Associated Author ID</label>
 				<input asp-for="Paper.AuthorID" class="form-control" />
 			</div>
+			<div class="mb-3">
+				<label asp-for="Paper.FilenameOriginal">Original Filename</label>
+				<input asp-for="Paper.FilenameOriginal" class="form-control" maxlength="100" />
+			</div>
+			<div  class="mb-3">
+				<label asp-for="Paper.Filename">Filename</label>
+				<input asp-for="Paper.Filename" class="form-control" maxlength="100" />
+			</div>
 		}
 		else
 		{
@@ -30,11 +38,12 @@
 				<label asp-for="Paper.AuthorID">Associated Author ID</label>
 				<input asp-for="Paper.AuthorID" class="form-control" />
 			</div>
+			<div hidden class="mb-3">
+				<label asp-for="Paper.FilenameOriginal">Original Filename</label>
+				<input asp-for="Paper.FilenameOriginal" class="form-control" maxlength="100" />
+			</div>
 		}
-		<div class="mb-3">
-			<label asp-for="Paper.FilenameOriginal">Original Filename</label>
-			<input asp-for="Paper.FilenameOriginal" class="form-control" maxlength="100" />
-		</div>
+		
 		<div class="mb-3">
 			<label asp-for="Paper.Filename">Filename</label>
 			<input asp-for="Paper.Filename" class="form-control" maxlength="100" />

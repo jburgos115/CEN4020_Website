@@ -24,16 +24,15 @@ namespace CEN4020_Website.Pages.Papers
         public async Task<IActionResult> OnPost(Model.Paper paper)
         {
             if (!User.HasClaim("PapersChair", "Admin"))
+            {
                 paper.AuthorID = int.Parse(User.FindFirst("UserId").Value); //input authorID from cookie
-            //if (ModelState.IsValid) //if db error occurs, then reload the page
-            //{
-                await _db.Paper.AddAsync(paper);
-                await _db.SaveChangesAsync();
-                TempData["success"] = "New Paper Created Successfully";
-                return RedirectToPage("Upload", "PaperID", new { PaperID = paper.PaperID });
-            //}
+                paper.FilenameOriginal = "";
+            }
 
-            //return Page();
+            await _db.Paper.AddAsync(paper);
+            await _db.SaveChangesAsync();
+            TempData["success"] = "New Paper Created Successfully";
+            return RedirectToPage("Upload", "PaperID", new { PaperID = paper.PaperID });
         }
     }
 }
