@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.ListOfAuth
 {
+    //Creates the Author in the database
     [BindProperties]
     public class RegisterModel : PageModel
     {
@@ -25,6 +26,7 @@ namespace CEN4020_Website.Pages.ListOfAuth
         {
             if (ModelState.IsValid)
             {
+                //Sends the Data of the Author being registered to the database
                 await _db.Author.AddAsync(Author);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "Registration was Successful";

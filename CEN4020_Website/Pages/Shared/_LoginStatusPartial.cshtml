@@ -4,12 +4,16 @@
 	<form method="post" style="color:cornsilk" class="form-inline" asp-page="/LoginRegister/Logout">
 		Welcome @User.Identity.Name
 		<button type="submit" class="btn btn-primary">Logout</button>
-		@if(User.HasClaim("PapersChair", "Admin"))
+		@if (User.HasClaim("PapersChair", "Admin"))
 		{
 			//admin credentials are hard coded
 		}
-		else {
-			<a class="btn btn-primary" asp-page="/LoginRegister/UserSetting" asp-route-id="@User.FindFirst("UserId").Value">
+		else @if (User.HasClaim("UserAuthor", "Author")) {
+			<a class="btn btn-primary" asp-page="/LoginRegister/UserSettingAuthor" asp-route-id="@User.FindFirst("UserId").Value">
+				<i class="bi bi-person-square"></i> &nbsp;Profile</a>
+		}
+		else @if (User.HasClaim("UserReviewer", "Reviewer")) {
+			<a class="btn btn-primary" asp-page="/LoginRegister/UserSettingReviewer" asp-route-id="@User.FindFirst("UserId").Value">
 				<i class="bi bi-person-square"></i> &nbsp;Profile</a>
 		}
 	</form>

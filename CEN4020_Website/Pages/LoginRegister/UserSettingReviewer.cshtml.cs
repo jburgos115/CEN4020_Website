@@ -4,30 +4,30 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.LoginRegister
 {
-    //Allows User to Edit Their Profile
+    //Allows Reviewer to Edit Their Profile
     [BindProperties]
-    public class UserSettingModel : PageModel
+    public class UserSettingReviewerModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
-        public Model.Author Author { get; set; }
+        public Model.Reviewer Reviewer { get; set; }
 
-        public UserSettingModel(ApplicationDbContext db)
+        public UserSettingReviewerModel(ApplicationDbContext db)
         {
             _db = db;
         }
         public void OnGet(int id)
         {
-            Author = _db.Author.Find(id);
+            Reviewer = _db.Reviewer.Find(id);
         }
 
-        public async Task<IActionResult> OnPost(Model.Author author)
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                _db.Author.Update(author);
+                _db.Reviewer.Update(Reviewer);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "Author Edited Successfully";
+                TempData["success"] = "Profile Edited Successfully";
                 return Page();
             }
             return Page();

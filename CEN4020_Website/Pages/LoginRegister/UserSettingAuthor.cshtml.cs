@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.LoginRegister
 {
-    //Allows User to Edit Their Profile
+    //Allows Author to Edit Their Profile
     [BindProperties]
-    public class UserSettingModel : PageModel
+    public class UserSettingAuthorModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
         public Model.Author Author { get; set; }
 
-        public UserSettingModel(ApplicationDbContext db)
+        public UserSettingAuthorModel(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -27,7 +27,7 @@ namespace CEN4020_Website.Pages.LoginRegister
             {
                 _db.Author.Update(author);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "Author Edited Successfully";
+                TempData["success"] = "Profile Edited Successfully";
                 return Page();
             }
             return Page();

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.Reviewers
 {
+    //Allows a Reviewer to Register
     [BindProperties]
     public class RegisterModel : PageModel
     {
