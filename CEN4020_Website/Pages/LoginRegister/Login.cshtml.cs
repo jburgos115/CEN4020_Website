@@ -44,7 +44,7 @@ namespace CEN4020_Website.Pages
             //Checking Login credentials against data in Author and Reviewer Table
             try
             {
-                using (SqlConnection connection = new SqlConnection("Server =.; Database = CPMS; Trusted_Connection = True"))
+                using (SqlConnection connection = new SqlConnection("Server =.\\sqlexpress; Database = CPMS; Trusted_Connection = True"))
                 {
                     connection.Open();
                     //Searches for User in Author Table
@@ -60,7 +60,8 @@ namespace CEN4020_Website.Pages
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
                             new Claim(ClaimTypes.Email, LoginInfo.Email),
-                            new Claim("UserAuthor", "Author")
+                            new Claim("UserAuthor", "Author"),
+                            new Claim("UserId", idNumber.ToString())
                         };
 
                         var identity = new ClaimsIdentity(claims, "MyCookieAuth");
@@ -83,7 +84,8 @@ namespace CEN4020_Website.Pages
                         var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, LoginInfo.Email),
                             new Claim(ClaimTypes.Email, LoginInfo.Email),
-                            new Claim("UserReviewer", "Reviewer")
+                            new Claim("UserReviewer", "Reviewer"),
+                            new Claim("UserId", idNumber.ToString())
                         };
 
                         var identity = new ClaimsIdentity(claims, "MyCookieAuth");

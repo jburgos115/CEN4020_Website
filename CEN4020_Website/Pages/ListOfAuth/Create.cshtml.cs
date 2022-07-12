@@ -23,6 +23,7 @@ namespace CEN4020_Website.Pages.ListOfAuth
 
         public async Task<IActionResult> OnPost()
         {
+            //Author.AuthorID = 4;
             if (ModelState.IsValid)
             {
                 await _db.Author.AddAsync(Author);

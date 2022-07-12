@@ -3,6 +3,8 @@
 @{
 }
 
+@using System.Security.Claims
+
 @if(TempData["success"] != null)
 {
 	<h2>@TempData["success"]</h2>
@@ -20,147 +22,112 @@
 		</div>
 	</div>
 
-	<br>
-	<form asp-page-handler="GenerateReport" method="post"> 
-		<button class="btn btn-primary">Generate Report</button>
-	</form>
-	<br>
+	@if (@User.HasClaim("PapersChair", "Admin"))
+	{
+		<br>
+		<form asp-page-handler="GenerateReport" method="post"> 
+			<button class="btn btn-primary">Generate Report</button>
+		</form>
+		<br>
+	}
+	
 
 	<table class="table table-bordered table-striped" style="height:100%;width:100%;display:block;overflow:scroll">
 		<thead>
 			<tr>
 				<th>PaperID</th>
-				
 				<th>AuthorID</th>
-				
 				<th>FilenameOriginal</th>
-				
 				<th>Filename</th>
-				
 				<th>Title</th>
-				
 				<th>Certification</th>
-				
 				<th>NotesToReviewer</th>
-				
 				<th>AnalysisOfAlgorithms</th>
-                
 				<th>Applications</th>
-                
 				<th>Architecture</th>
-                
 				<th>ArtificialIntelligence</th>
-                
 				<th>ComputerEngineering</th>
-                
 				<th>Curriculum</th>
-                
 				<th>DataStructures</th>
-                
 				<th>Databases</th>
-                
 				<th>DistancedLearning</th>
-                
 				<th>DistributedSystems</th>
-                
 				<th>EthicalSocietalIssues</th>
-                
 				<th>FirstYearComputing</th>
-                
 				<th>GenderIssues</th>
-                
 				<th>GrantWriting</th>
-                
 				<th>GraphicsImageProcessing</th>
-                
 				<th>HumanComputerInteraction</th>
-                
 				<th>LabratoryEnvironments</th>
-                
 				<th>Literacy</th>
-                
 				<th>MathematicsInComputing</th>
-                
 				<th>Multimedia</th>
-                
 				<th>NetworkingDataCommunications</th>
-                
 				<th>NonMajorCourses</th>
-                
 				<th>ObjectOrientedIssues</th>
-                
 				<th>OperatingSystems</th>
-                
 				<th>ParallelProcessing</th>
-                
 				<th>Pedagogy</th>
-                
 				<th>ProgrammingLanguages</th>
-                
 				<th>Research</th>
-                
 				<th>Security</th>
-                
 				<th>SoftwareEngineering</th>
-                
 				<th>SystemsAnalysisAndDesign</th>
-                
 				<th>UsingTechnologyInTheClassroom</th>
-                
 				<th>WebAndInternetProgramming</th>
-                
 				<th>Other</th>
-
 				<th>OtherDescription</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach(var obj in Model.Paper)
 			{
-				<tr>
-					<td width="50%">@obj.PaperID</td>
-					<td width="50%">@obj.AuthorID</td>
-					<td width="50%">@obj.FilenameOriginal</td>
-					<td width="50%">@obj.Filename</td>
-					<td width="50%">@obj.Title</td>
-					<td width="50%">@obj.Certification</td>
-					<td width="50%">@obj.NotesToReviewers</td>
-					<td width="50%">@obj.AnalysisOfAlgorithms</td>
-					<td width="50%">@obj.Applications</td>
-					<td width="50%">@obj.Architecture</td>
-					<td width="50%">@obj.ArtificialIntelligence</td>
-					<td width="50%">@obj.ComputerEngineering</td>
-					<td width="50%">@obj.Curriculum</td>
-					<td width="50%">@obj.DataStructures</td>
-					<td width="50%">@obj.Databases</td>
-					<td width="50%">@obj.DistanceLearning</td>
-					<td width="50%">@obj.DistributedSystems</td>
-					<td width="50%">@obj.EthicalSocietalIssues</td>
-					<td width="50%">@obj.FirstYearComputing</td>
-					<td width="50%">@obj.GenderIssues</td>
-					<td width="50%">@obj.GrantWriting</td>
-					<td width="50%">@obj.GraphicsImageProcessing</td>
-					<td width="50%">@obj.HumanComputerInteraction</td>
-					<td width="50%">@obj.LaboratoryEnvironments</td>
-					<td width="50%">@obj.Literacy</td>
-					<td width="50%">@obj.MathematicsInComputing</td>
-					<td width="50%">@obj.Multimedia</td>
-					<td width="50%">@obj.NetworkingDataCommunications</td>
-					<td width="50%">@obj.NonMajorCourses</td>
-					<td width="50%">@obj.ObjectOrientedIssues</td>
-					<td width="50%">@obj.OperatingSystems</td>
-					<td width="50%">@obj.ParallelsProcessing</td>
-					<td width="50%">@obj.Pedagogy</td>
-					<td width="50%">@obj.ProgrammingLanguages</td>
-					<td width="50%">@obj.Research</td>
-					<td width="50%">@obj.Security</td>
-					<td width="50%">@obj.SoftwareEngineering</td>
-					<td width="50%">@obj.SystemsAnalysisAndDesign</td>
-					<td width="50%">@obj.UsingTechnologyInTheClassroom</td>
-					<td width="50%">@obj.WebAndInternetProgramming</td>
-					<td width="50%">@obj.Other</td>
-					<td width="50%">@obj.OtherDescription</td>
-					<td>
+				if (@User.HasClaim("PapersChair", "Admin") || @User.FindFirst("UserId").Value == obj.AuthorID.ToString())
+				{
+					<tr>
+						<td width="50%">@obj.PaperID</td>
+						<td width="50%">@obj.AuthorID</td>
+						<td width="50%">@obj.FilenameOriginal</td>
+						<td width="50%">@obj.Filename</td>
+						<td width="50%">@obj.Title</td>
+						<td width="50%">@obj.Certification</td>
+						<td width="50%">@obj.NotesToReviewers</td>
+						<td width="50%">@obj.AnalysisOfAlgorithms</td>
+						<td width="50%">@obj.Applications</td>
+						<td width="50%">@obj.Architecture</td>
+						<td width="50%">@obj.ArtificialIntelligence</td>
+						<td width="50%">@obj.ComputerEngineering</td>
+						<td width="50%">@obj.Curriculum</td>
+						<td width="50%">@obj.DataStructures</td>
+						<td width="50%">@obj.Databases</td>
+						<td width="50%">@obj.DistanceLearning</td>
+						<td width="50%">@obj.DistributedSystems</td>
+						<td width="50%">@obj.EthicalSocietalIssues</td>
+						<td width="50%">@obj.FirstYearComputing</td>
+						<td width="50%">@obj.GenderIssues</td>
+						<td width="50%">@obj.GrantWriting</td>
+						<td width="50%">@obj.GraphicsImageProcessing</td>
+						<td width="50%">@obj.HumanComputerInteraction</td>
+						<td width="50%">@obj.LaboratoryEnvironments</td>
+						<td width="50%">@obj.Literacy</td>
+						<td width="50%">@obj.MathematicsInComputing</td>
+						<td width="50%">@obj.Multimedia</td>
+						<td width="50%">@obj.NetworkingDataCommunications</td>
+						<td width="50%">@obj.NonMajorCourses</td>
+						<td width="50%">@obj.ObjectOrientedIssues</td>
+						<td width="50%">@obj.OperatingSystems</td>
+						<td width="50%">@obj.ParallelsProcessing</td>
+						<td width="50%">@obj.Pedagogy</td>
+						<td width="50%">@obj.ProgrammingLanguages</td>
+						<td width="50%">@obj.Research</td>
+						<td width="50%">@obj.Security</td>
+						<td width="50%">@obj.SoftwareEngineering</td>
+						<td width="50%">@obj.SystemsAnalysisAndDesign</td>
+						<td width="50%">@obj.UsingTechnologyInTheClassroom</td>
+						<td width="50%">@obj.WebAndInternetProgramming</td>
+						<td width="50%">@obj.Other</td>
+						<td width="50%">@obj.OtherDescription</td>
+						<td>
 						<div class="w-75 btn-group" role="group">
 							<a asp-page="Edit" asp-route-id="@obj.PaperID" class="btn btn-primary">
 								<i class="bi bi-pencil-square"></i>
@@ -171,6 +138,7 @@
 						</div>
 					</td>
 				</tr>
+				}
 			}
 		</tbody>
 	</table>
