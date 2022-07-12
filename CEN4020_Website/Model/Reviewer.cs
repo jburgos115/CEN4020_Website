@@ -4,8 +4,10 @@ namespace CEN4020_Website.Model
 {
     public class Reviewer
     {
+        //declare the attributes of Reviewer table
+        //these variables are used keep records of reviewers in the database
         [Key]
-        public int ReviewerID { get; set; }
+        public int ReviewerID { get; set; }//primary key
 
         //[Required(ErrorMessage = "Please provide activity status", AllowEmptyStrings = false)]
         //public string Active { get; set; }

@@ -4,8 +4,10 @@ namespace CEN4020_Website.Model
 {
     public class Review
     {
+        //declare the attributes of Review table
+        //these variables are used to submit reviews and keep records of reviews in the database
         [Key]
-        public int ReviewID { get; set; }
+        public int ReviewID { get; set; }//primary key
 
         //[Required(ErrorMessage = "Please provide activity status", AllowEmptyStrings = false)]
         //public string Active { get; set; }

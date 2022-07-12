@@ -4,7 +4,7 @@
 }
 
 @using System.Security.Claims
-
+<!--page responsible of displaying the list of registered author-->
 @if(TempData["success"] != null)
 {
 	<h2>@TempData["success"]</h2>
@@ -21,7 +21,7 @@
 			</a>
 		</div>
 	</div>
-
+<!--GenerateReport is a functionality that allow the Admin to download the list of registered authors-->
 	<br>
 	<form asp-page-handler="GenerateReport" method="post"> 
 		<button class="btn btn-primary">Generate Report</button>

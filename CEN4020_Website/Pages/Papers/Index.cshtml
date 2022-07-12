@@ -3,6 +3,7 @@
 @{
 }
 
+<<!--page responsible of displaying the list of submitted Paper-->
 @using System.Security.Claims
 
 @if(TempData["success"] != null)
@@ -21,7 +22,7 @@
 			</a>
 		</div>
 	</div>
-
+	<!--GenerateReport is a functionality that allow the Admin to download the list of submissions authors-->
 	@if (@User.HasClaim("PapersChair", "Admin"))
 	{
 		<br>

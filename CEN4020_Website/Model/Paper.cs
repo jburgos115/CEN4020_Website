@@ -4,8 +4,10 @@ namespace CEN4020_Website.Model
 {
     public class Paper
     {
+        //declare the attributes of Paper table
+        //these variables are used keep records of papers in the database
         [Key]
-        public int PaperID { get; set; }
+        public int PaperID { get; set; }//primary key
 
         //[Required(ErrorMessage = "Please provide activity status", AllowEmptyStrings = false)]
         //public string Active { get; set; }

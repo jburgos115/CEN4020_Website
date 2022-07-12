@@ -1,49 +1,47 @@
 ﻿@page
-@model CEN4020_Website.Pages.ListOfAuth.CreateModel
+@model CEN4020_Website.Pages.LoginRegister.UserSettingModel
 @{
 }
-<!--form used to register new author's information and store it in the database-->
+<!--Page responsible for modifying user's information-->
+@if(TempData["success"] != null)
+{
+	<h2>@TempData["success"]</h2>
+}
+
 <form method="post">
+	<input hidden asp-for="Author.AuthorID" />
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
-			<h2 class="text-primary pl-3">New Author</h2>
-
+			<h2 class="text-primary pl-3">Edit Profile</h2>
 			<hr />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.FirstName">First Name</label>
-			<input asp-for="Author.FirstName" class="form-control" />
-			<span asp-validation-for="Author.FirstName" class="text-danger"></span>
+			<input asp-for="Author.FirstName" class="form-control" maxlength="50" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.MiddleInitial">Middle Initial</label>
-			<input asp-for="Author.MiddleInitial" class="form-control" />
-			<span asp-validation-for="Author.MiddleInitial" class="text-danger"></span>
+			<input asp-for="Author.MiddleInitial" class="form-control" maxlength="1" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.LastName">Last Name</label>
-			<input asp-for="Author.LastName" class="form-control" />
-			<span asp-validation-for="Author.LastName" class="text-danger"></span>
+			<input asp-for="Author.LastName" class="form-control" maxlength="50" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Affiliation">Affiliation</label>
-			<input asp-for="Author.Affiliation" class="form-control" />
-			<span asp-validation-for="Author.Affiliation" class="text-danger"></span>
+			<input asp-for="Author.Affiliation" class="form-control" maxlength="50" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Department">Departmant</label>
-			<input asp-for="Author.Department" class="form-control" />
-			<span asp-validation-for="Author.Department" class="text-danger"></span>
+			<input asp-for="Author.Department" class="form-control" maxlength="50" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Address">Address</label>
-			<input asp-for="Author.Address" class="form-control" />
-			<span asp-validation-for="Author.Address" class="text-danger"></span>
+			<input asp-for="Author.Address" class="form-control" maxlength="50" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.City">City</label>
-			<input asp-for="Author.City" class="form-control" />
-			<span asp-validation-for="Author.City" class="text-danger"></span>
+			<input asp-for="Author.City" class="form-control" maxlength="50" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.State">State</label>
@@ -100,32 +98,27 @@
 				<option value="WI">Wisconsin</option>
 				<option value="WY">Wyoming</option>
 			</select>
-			<span asp-validation-for="Author.State" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.ZipCode">Zip Code</label>
-			<input asp-for="Author.ZipCode" class="form-control" />
-			<span asp-validation-for="Author.ZipCode" class="text-danger"></span>
+			<input asp-for="Author.ZipCode" class="form-control" maxlength="10" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.PhoneNumber">Phone Number</label>
-			<input asp-for="Author.PhoneNumber" class="form-control" />
-			<span asp-validation-for="Author.PhoneNumber" class="text-danger"></span>
+			<input type="tel" asp-for="Author.PhoneNumber" class="form-control" maxlength="50" 
+				placeholder="(888) 888-8888" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.EmailAddress">Email</label>
-			<input asp-for="Author.EmailAddress" class="form-control" />
-			<span asp-validation-for="Author.EmailAddress" class="text-danger"></span>
+			<input asp-for="Author.EmailAddress" class="form-control" maxlength="100" />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author.Password">Password</label>
-			<input asp-for="Author.Password" class="form-control" />
-			<span asp-validation-for="Author.Password" class="text-danger"></span>
+			<input type="password" asp-for="Author.Password" class="form-control" maxlength="5" />
 		</div>
-		<button type="submit" class="btn btn-primary" style="width:150px;">Register</button>
+		<button type="submit" class="btn btn-primary" style="width:150px;">Update</button>
 	</div>
 </form>
-
 
 @section Scripts {
 	@{

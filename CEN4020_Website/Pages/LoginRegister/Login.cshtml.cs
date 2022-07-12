@@ -62,7 +62,7 @@ namespace CEN4020_Website.Pages
                             new Claim(ClaimTypes.Email, LoginInfo.Email),
                             new Claim("UserAuthor", "Author"),
                             new Claim("UserId", idNumber.ToString())
-                        };
+                    };
 
                         var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
