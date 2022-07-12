@@ -1,19 +1,19 @@
 using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CEN4020_Website.Pages.ListOfAuth
+namespace CEN4020_Website.Pages.Reviewers
 {
-    [Authorize(Policy = "AdminCredentialsRequired")]
     [BindProperties]
-    public class CreateModel : PageModel
+    public class RegisterModel : PageModel
     {
         private readonly ApplicationDbContext _db;
+        
+        public Model.Reviewer Reviewer { get; set; }
 
-        public Model.Author Author { get; set; }
-
-        public CreateModel(ApplicationDbContext db)
+        public RegisterModel(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -23,13 +23,12 @@ namespace CEN4020_Website.Pages.ListOfAuth
 
         public async Task<IActionResult> OnPost()
         {
-            //Author.AuthorID = 4;
             if (ModelState.IsValid)
             {
-                await _db.Author.AddAsync(Author);
+                await _db.Reviewer.AddAsync(Reviewer);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "New Author Created Successfully";
-                return RedirectToPage("Index");
+                TempData["success"] = "Registration was Successful";
+                return RedirectToPage("/LoginRegister/Login");
             }
 
             return Page();

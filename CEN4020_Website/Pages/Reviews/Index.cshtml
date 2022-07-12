@@ -1,0 +1,107 @@
+﻿@page
+@model CEN4020_Website.Pages.Reviews.IndexModel
+@{
+}
+
+@using System.Security.Claims
+
+@if(TempData["success"] != null)
+{
+	<h2>@TempData["success"]</h2>
+}
+
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary"> Submit Review </h2>
+		</div>
+		<div class="col-6 text-end">
+			<a asp-page="create" class="btn btn-primary">
+				<i class="bi bi-pencil-square"></i> &nbsp;Submit
+			</a>
+		</div>
+	</div>
+
+	@if (@User.HasClaim("PapersChair", "Admin"))
+	{
+		<br>
+		<form asp-page-handler="GenerateReport" method="post"> 
+			<button class="btn btn-primary">Generate Report</button>
+		</form>
+		<br>
+	}
+
+	<table class="table table-bordered table-striped" style="height:100%;width:100%;display:block;overflow:scroll">
+		<thead>
+			<tr>
+				<td>ReviewID</td>
+				<td>PaperID</td>
+				<td>ReviewerID</td>
+				<td>AppropriatenessOfTopic</td>
+				<td>TimelinessOfTopic</td>
+				<td>SupportiveEvidence</td>
+				<td>TechnicalQuality</td>
+				<td>ScopeOfCoverage</td>
+				<td>CitationOfPreviousWork</td>
+				<td>Originality</td>
+				<td>ContentComments</td>
+				<td>OrganizationOfPaper</td>
+				<td>ClarityOfMainMessage</td>
+				<td>Mechanics</td>
+				<td>WrittenDocumentComments</td>
+				<td>SuitabilityForPresentation</td>
+				<td>PotentialInterestInTopic</td>
+				<td>PotentialForOralPresentationComments</td>
+				<td>OverallRating</td>
+				<td>OverallRatingComments</td>
+				<td>ComfortLevelTopic</td>
+				<td>ComfortLevelAcceptability</td>
+				<td>Complete</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var obj in Model.Review)
+			{
+				if (@User.HasClaim("PapersChair", "Admin") || @User.FindFirst("UserId").Value == obj.ReviewerID.ToString())
+				{
+					<tr>
+						<td width="50%">@obj.ReviewID</td>
+						<td width="50%">@obj.PaperID</td>
+						<td width="50%">@obj.ReviewerID</td>
+						<td width="50%">@obj.AppropriatenessOfTopic</td>
+						<td width="50%">@obj.TimelinessOfTopic</td>
+						<td width="50%">@obj.SupportiveEvidence</td>
+						<td width="50%">@obj.TechnicalQuality</td>
+						<td width="50%">@obj.ScopeOfCoverage</td>
+						<td width="50%">@obj.CitationOfPreviousWork</td>
+						<td width="50%">@obj.Originality</td>
+						<td width="50%">@obj.ContentComments</td>
+						<td width="50%">@obj.OrganizationOfPaper</td>
+						<td width="50%">@obj.ClarityOfMainMessage</td>
+						<td width="50%">@obj.Mechanics</td>
+						<td width="50%">@obj.WrittenDocumentComments</td>
+						<td width="50%">@obj.SuitabilityForPresentation</td>
+						<td width="50%">@obj.PotentialInterestInTopic</td>
+						<td width="50%">@obj.PotentialForOralPresentationComments</td>
+						<td width="50%">@obj.OverallRating</td>
+						<td width="50%">@obj.OverallRatingComments</td>
+						<td width="50%">@obj.ComfortLevelTopic</td>
+						<td width="50%">@obj.ComfortLevelAcceptability</td>
+						<td width="50%">@obj.Complete</td>
+						<td>
+							<div class="w-75 btn-group" role="group">
+								<a asp-page="Edit" asp-route-id="@obj.ReviewID" class="btn btn-primary">
+									<i class="bi bi-pencil-square"></i>
+								</a>
+								<a asp-page="Delete" asp-route-id="@obj.ReviewID" class="btn btn-danger">
+									<i class="bi bi-trash-fill"></i>
+								</a>
+							</div>
+						</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+
+</div>
