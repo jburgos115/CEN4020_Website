@@ -1,6 +1,7 @@
 using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 
 /*
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CEN4020_Website.Pages.Reviews
 {
+    [Authorize(Policy = "AdminCredentialsRequired")]
     [BindProperties]
     public class CreateModel : PageModel
     {
@@ -48,9 +50,16 @@ namespace CEN4020_Website.Pages.Reviews
             review.ComfortLevelAcceptability = 0.00m;
             review.Complete = false;
 
-            await _db.Review.AddAsync(review);
-            await _db.SaveChangesAsync();
-            TempData["success"] = "New Review Created Successfully";
+            try
+            {
+                await _db.Review.AddAsync(review);
+                await _db.SaveChangesAsync();
+                TempData["success"] = "New Review Created Successfully";
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
             return RedirectToPage("Index");
         }
     }

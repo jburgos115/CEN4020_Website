@@ -32,15 +32,17 @@ namespace CEN4020_Website.Pages.ListOfAuth
         //Controller to save changes
         public async Task<IActionResult> OnPost(Model.Author author)
         {
-            if (ModelState.IsValid)
+            try
             {
                 _db.Author.Update(author);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "Author Edited Successfully";
-                return RedirectToPage("Index");
             }
-            return Page();
-
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }

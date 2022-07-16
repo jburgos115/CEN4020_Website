@@ -35,10 +35,21 @@ namespace CEN4020_Website.Pages.Papers
                 paper.FilenameOriginal = "";
             }
 
-            await _db.Paper.AddAsync(paper);
-            await _db.SaveChangesAsync();
-            TempData["success"] = "New Paper Created Successfully";
-            return RedirectToPage("Upload", "PaperID", new { PaperID = paper.PaperID });
+            try
+            {
+                await _db.Paper.AddAsync(paper);
+                await _db.SaveChangesAsync();
+                TempData["success"] = "New Paper Created Successfully";
+                return RedirectToPage("Upload", "PaperID", new { PaperID = paper.PaperID });
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
+
+            
+            
         }
     }
 }

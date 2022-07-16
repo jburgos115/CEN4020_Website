@@ -31,16 +31,22 @@ namespace CEN4020_Website.Pages.Papers
         public async Task<IActionResult> OnPost(Model.Paper paper)
         {
             var reviewerFromDb = _db.Paper.Find(paper.PaperID);
-            if(reviewerFromDb != null)
+            try
             {
-                _db.Paper.Remove(reviewerFromDb);
-                await _db.SaveChangesAsync();
-                TempData["success"] = "Paper Deleted Successfully";
-                return RedirectToPage("Index");
+                if (reviewerFromDb != null)
+                {
+                    _db.Paper.Remove(reviewerFromDb);
+                    await _db.SaveChangesAsync();
+                    TempData["success"] = "Paper Deleted Successfully";
+                }
+                else
+                    throw new Exception();
             }
-            
-            return Page();
-
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }

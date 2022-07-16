@@ -33,16 +33,22 @@ namespace CEN4020_Website.Pages.ListOfAuth
         public async Task<IActionResult> OnPost(Model.Author author)
         {
             var authorFromDb = _db.Author.Find(author.AuthorID);
-            if(authorFromDb != null)
+            try
             {
-                _db.Author.Remove(authorFromDb);
-                await _db.SaveChangesAsync();
-                TempData["success"] = "Author Deleted Successfully";
-                return RedirectToPage("Index");
+                if (authorFromDb != null)
+                {
+                    _db.Author.Remove(authorFromDb);
+                    await _db.SaveChangesAsync();
+                    TempData["success"] = "Author Deleted Successfully";
+                }
+                else
+                    throw new Exception();
             }
-            
-            return Page();
-
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }

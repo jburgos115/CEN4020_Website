@@ -1,6 +1,7 @@
 using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 
 /*
@@ -31,15 +32,22 @@ namespace CEN4020_Website.Pages.Reviews
         public async Task<IActionResult> OnPost(Model.Review review)
         {
             var reviewerFromDb = _db.Review.Find(review.ReviewID);
-            if(reviewerFromDb != null)
+            try
             {
-                _db.Review.Remove(reviewerFromDb);
-                await _db.SaveChangesAsync();
-                TempData["success"] = "Review Deleted Successfully";
-                return RedirectToPage("Index");
+                if (reviewerFromDb != null)
+                {
+                    _db.Review.AddAsync(reviewerFromDb);
+                    await _db.SaveChangesAsync();
+                    TempData["success"] = "New Review Created Successfully";
+                }
+                else
+                    throw new Exception();
             }
-            
-            return Page();
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
 
         }
     }

@@ -27,15 +27,17 @@ namespace CEN4020_Website.Pages.Reviewers
         //Controller for creating a new database record
         public async Task<IActionResult> OnPost(Model.Reviewer reviewer)
         {
-            if (ModelState.IsValid)
+            try
             {
                 await _db.Reviewer.AddAsync(reviewer);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "New Reviewer Created Successfully";
-                return RedirectToPage("Index");
             }
-
-            return Page();
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }

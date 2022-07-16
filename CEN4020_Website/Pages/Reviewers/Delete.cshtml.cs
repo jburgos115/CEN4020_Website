@@ -31,16 +31,22 @@ namespace CEN4020_Website.Pages.Reviewers
         public async Task<IActionResult> OnPost(Model.Reviewer reviewer)
         {
             var reviewerFromDb = _db.Reviewer.Find(reviewer.ReviewerID);
-            if(reviewerFromDb != null)
+            try
             {
-                _db.Reviewer.Remove(reviewerFromDb);
-                await _db.SaveChangesAsync();
-                TempData["success"] = "Reviewer Deleted Successfully";
-                return RedirectToPage("Index");
+                if (reviewerFromDb != null)
+                {
+                    _db.Reviewer.Remove(reviewerFromDb);
+                    await _db.SaveChangesAsync();
+                    TempData["success"] = "Reviewer Deleted Successfully";
+                }
+                else
+                    throw new Exception();
             }
-            
-            return Page();
-
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }

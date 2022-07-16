@@ -1,6 +1,7 @@
 using CEN4020_Website.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 
 /*
@@ -30,15 +31,17 @@ namespace CEN4020_Website.Pages.Reviews
         //Controller to save changes
         public async Task<IActionResult> OnPost(Model.Review review)
         {
-            if (ModelState.IsValid)
+            try
             {
                 _db.Review.Update(review);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "Review Edited Successfully";
-                return RedirectToPage("Index");
             }
-            return Page();
-
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }

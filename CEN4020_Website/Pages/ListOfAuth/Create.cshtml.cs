@@ -29,15 +29,17 @@ namespace CEN4020_Website.Pages.ListOfAuth
         //Controller for creating a new database record
         public async Task<IActionResult> OnPost()
         {
-            if (ModelState.IsValid)
+            try
             {
                 await _db.Author.AddAsync(Author);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "New Author Created Successfully";
-                return RedirectToPage("Index");
             }
-
-            return Page();
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }

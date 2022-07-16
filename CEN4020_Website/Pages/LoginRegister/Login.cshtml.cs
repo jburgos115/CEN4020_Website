@@ -101,10 +101,10 @@ namespace CEN4020_Website.Pages
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                ModelState.AddModelError("Sorry but we are unable to process your request at the moment please try again after a couple of minutes",
-                    ex.Message);
+                TempData["error"] = "Sorry, we are experiencing connection issues. Please try again later.";
+                return Page();
             }
 
             ModelState.AddModelError("", "Incorrect Email Address or Password");

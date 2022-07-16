@@ -30,15 +30,17 @@ namespace CEN4020_Website.Pages.Papers
         //Controller to save changes
         public async Task<IActionResult> OnPost(Model.Paper paper)
         {
-            if (ModelState.IsValid)
+            try
             {
                 _db.Paper.Update(paper);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "Paper Edited Successfully";
-                return RedirectToPage("Index");
             }
-            return Page();
-
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry, we are unable to process your request at this time. Please try again later.";
+            }
+            return RedirectToPage("Index");
         }
     }
 }
